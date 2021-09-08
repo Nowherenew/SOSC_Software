@@ -22,6 +22,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private void PictureBox_Click(object sender, EventArgs e)
         {
             string PictureBoxTag = (string)(sender as PictureBox).Tag;
+            ShapePictureBox.Tag = PictureBoxTag;
             int PointX = 0, PointY = 0;
             for (int i = 0; i < LengthTextBoxes.Count; i++)
             {
@@ -502,6 +503,20 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
+        private void InputNumber_Only(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
         private void LengthTextBox_Change(object sender, EventArgs e)
         {
             double CalTheHypotenuse(int FirstEdge, int SecondEdge)
@@ -517,23 +532,23 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             c45 = 0;
             c90 = 0;
             c135 = 0;
-            if(DiameterComboBox.Text!="")
+            if(DiameterComboBox.Text!="" && int.TryParse(DiameterComboBox.Text, out diameter) == true)
             {
                 diameter = int.Parse(DiameterComboBox.Text);
             }
-            if (Curling45TextBox.Text != "")
+            if (Curling45TextBox.Text != "" && double.TryParse(Curling45TextBox.Text, out c45) == true)
             {
-                c45 = int.Parse(Curling45TextBox.Text);
+                c45 = double.Parse(Curling45TextBox.Text);
                 c45 = c45 * diameter;
             }
-            if (Curling90TextBox.Text != "")
+            if (Curling90TextBox.Text != "" && double.TryParse(Curling90TextBox.Text, out c90) == true)
             {
-                c90 = int.Parse(Curling90TextBox.Text);
+                c90 = double.Parse(Curling90TextBox.Text);
                 c90 = c90 * diameter;
             }
-            if (Curling135TextBox.Text != "")
+            if (Curling135TextBox.Text != "" && double.TryParse(Curling135TextBox.Text, out c135) == true)
             {
-                c135 = int.Parse(Curling135TextBox.Text);
+                c135 = double.Parse(Curling135TextBox.Text);
                 c135 = c135 * diameter;
             }
 
@@ -558,43 +573,51 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 {
                     lx1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if(LengthTextBoxes[i].Tag == "lx2" && LengthTextBoxes[i].Text != "0")
+                else if(LengthTextBoxes[i].Tag == "lx2" && LengthTextBoxes[i].Text != "")
                 {
                     lx2 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lx3" && LengthTextBoxes[i].Text != "0")
+                else if (LengthTextBoxes[i].Tag == "lx3" && LengthTextBoxes[i].Text != "")
                 {
                     lx3 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lnx1" && LengthTextBoxes[i].Text != "0")
+                else if (LengthTextBoxes[i].Tag == "ly1" && LengthTextBoxes[i].Text != "")
+                {
+                    ly1 = int.Parse(LengthTextBoxes[i].Text);
+                }
+                else if (LengthTextBoxes[i].Tag == "ly2" && LengthTextBoxes[i].Text != "")
+                {
+                    ly2 = int.Parse(LengthTextBoxes[i].Text);
+                }
+                else if (LengthTextBoxes[i].Tag == "lnx1" && LengthTextBoxes[i].Text != "")
                 {
                     lnx1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lnx2" && LengthTextBoxes[i].Text != "0")
+                else if (LengthTextBoxes[i].Tag == "lnx2" && LengthTextBoxes[i].Text != "")
                 {
                     lnx2 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lny1" && LengthTextBoxes[i].Text != "0")
+                else if (LengthTextBoxes[i].Tag == "lny1" && LengthTextBoxes[i].Text != "")
                 {
                     lny1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lny2" && LengthTextBoxes[i].Text != "0")
+                else if (LengthTextBoxes[i].Tag == "lny2" && LengthTextBoxes[i].Text != "")
                 {
                     lny2 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "dlx1" && LengthTextBoxes[i].Text != "0")
+                else if (LengthTextBoxes[i].Tag == "dlx1" && LengthTextBoxes[i].Text != "")
                 {
                     dlx1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "alx1" && LengthTextBoxes[i].Text != "0")
+                else if (LengthTextBoxes[i].Tag == "alx1" && LengthTextBoxes[i].Text != "")
                 {
                     alx1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "bly1" && LengthTextBoxes[i].Text != "0")
+                else if (LengthTextBoxes[i].Tag == "bly1" && LengthTextBoxes[i].Text != "")
                 {
                     bly1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "hook" && LengthTextBoxes[i].Text != "0")
+                else if (LengthTextBoxes[i].Tag == "hook" && LengthTextBoxes[i].Text != "")
                 {
                     hook = int.Parse(LengthTextBoxes[i].Text);
                 }
@@ -688,6 +711,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             {
                 BarLength = lx1 + lx2 + ly1 + ly2 - (3 * c90);
             }
+            TestLabel.Text = "" + BarLength;
         }
         private void AcceptButton_Click(object sender, EventArgs e)
         {
