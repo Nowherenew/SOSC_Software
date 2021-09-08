@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Stactistics And Optimization Of Steel Cutting (Without .Net Framework)/1.0.0": {
+        "runtime": {
+          "Stactistics And Optimization Of Steel Cutting (Without .Net Framework).dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Stactistics And Optimization Of Steel Cutting (Without .Net Framework)/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

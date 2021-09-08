@@ -1,0 +1,11 @@
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\bin\Debug\Statistics And Optimization Of Steel Cutting.exe.config
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\bin\Debug\Statistics And Optimization Of Steel Cutting.exe
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\bin\Debug\Statistics And Optimization Of Steel Cutting.pdb
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics And Optimization Of Steel Cutting.csproj.AssemblyReference.cache
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics_And_Optimization_Of_Steel_Cutting.Main_Interface.resources
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics_And_Optimization_Of_Steel_Cutting.Properties.Resources.resources
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics_And_Optimization_Of_Steel_Cutting.Work_With_Steel.resources
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics And Optimization Of Steel Cutting.csproj.GenerateResource.cache
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics And Optimization Of Steel Cutting.csproj.CoreCompileInputs.cache
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics And Optimization Of Steel Cutting.exe
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics And Optimization Of Steel Cutting.pdb
