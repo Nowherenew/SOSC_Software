@@ -1183,6 +1183,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Name = "Steel_Edition_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Steel_Edition_Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Steel_Edition_Form_FormClosing);
             this.panel1.ResumeLayout(false);
             this.ComponentTabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

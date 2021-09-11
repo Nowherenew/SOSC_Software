@@ -34,7 +34,20 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MainDataGridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalWeigh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -66,7 +79,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -78,7 +91,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // 
             this.panel1.Controls.Add(this.TestLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 52);
+            this.panel1.Location = new System.Drawing.Point(0, 49);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2746, 72);
             this.panel1.TabIndex = 0;
@@ -97,9 +110,9 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel2.Controls.Add(this.tabControl1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 124);
+            this.panel2.Location = new System.Drawing.Point(0, 121);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2746, 1223);
+            this.panel2.Size = new System.Drawing.Size(2746, 1226);
             this.panel2.TabIndex = 1;
             // 
             // tabControl1
@@ -109,30 +122,172 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(2246, 1223);
+            this.tabControl1.Size = new System.Drawing.Size(2246, 1226);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.MainDataGridView);
             this.tabPage1.Location = new System.Drawing.Point(10, 58);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(2226, 1155);
+            this.tabPage1.Size = new System.Drawing.Size(2226, 1158);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Bảng tổng hợp thép";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // MainDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 102;
-            this.dataGridView1.RowTemplate.Height = 49;
-            this.dataGridView1.Size = new System.Drawing.Size(2220, 1149);
-            this.dataGridView1.TabIndex = 0;
+            this.MainDataGridView.AllowUserToAddRows = false;
+            this.MainDataGridView.AllowUserToDeleteRows = false;
+            this.MainDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.MainDataGridView.ColumnHeadersHeight = 100;
+            this.MainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.MainDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.TotalWeigh});
+            this.MainDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainDataGridView.EnableHeadersVisualStyles = false;
+            this.MainDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.MainDataGridView.Name = "MainDataGridView";
+            this.MainDataGridView.ReadOnly = true;
+            this.MainDataGridView.RowHeadersVisible = false;
+            this.MainDataGridView.RowHeadersWidth = 200;
+            this.MainDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.MainDataGridView.RowTemplate.Height = 400;
+            this.MainDataGridView.Size = new System.Drawing.Size(2220, 1152);
+            this.MainDataGridView.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ID";
+            this.Column1.HeaderText = "STT";
+            this.Column1.MinimumWidth = 100;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 121;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Batching";
+            this.Column2.HeaderText = "Phân đợt";
+            this.Column2.MinimumWidth = 150;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 178;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ComponentName";
+            this.Column3.HeaderText = "Tên cấu kiện";
+            this.Column3.MinimumWidth = 12;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 216;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "ComponentSign";
+            this.Column4.HeaderText = "Kí hiệu cấu kiện";
+            this.Column4.MinimumWidth = 150;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 206;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "SteelSign";
+            this.Column5.HeaderText = "Số hiệu thép";
+            this.Column5.MinimumWidth = 150;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 221;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Shape";
+            this.Column6.HeaderText = "Kích thước";
+            this.Column6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Column6.MinimumWidth = 670;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column6.Width = 670;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "Diameter";
+            this.Column7.HeaderText = "Đường kính";
+            this.Column7.MinimumWidth = 150;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 210;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "NumberOfComponent";
+            this.Column8.HeaderText = "Số lượng cấu kiện";
+            this.Column8.MinimumWidth = 200;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 234;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "BarPerComponent";
+            this.Column9.HeaderText = "Số thanh / Cấu kiện";
+            this.Column9.MinimumWidth = 200;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 254;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "TotalBar";
+            this.Column10.HeaderText = "Tổng số thanh";
+            this.Column10.MinimumWidth = 200;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 243;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "LengthPerBar";
+            this.Column11.HeaderText = "Chiều dài / Thanh";
+            this.Column11.MinimumWidth = 200;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 207;
+            // 
+            // Column12
+            // 
+            this.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column12.DataPropertyName = "TotalLength";
+            this.Column12.HeaderText = "Tổng chiều dài";
+            this.Column12.MinimumWidth = 200;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // TotalWeigh
+            // 
+            this.TotalWeigh.DataPropertyName = "TotalWeigh";
+            this.TotalWeigh.HeaderText = "Tổng khối lượng";
+            this.TotalWeigh.MinimumWidth = 200;
+            this.TotalWeigh.Name = "TotalWeigh";
+            this.TotalWeigh.ReadOnly = true;
+            this.TotalWeigh.Width = 268;
             // 
             // panel3
             // 
@@ -141,7 +296,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(2246, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(500, 1223);
+            this.panel3.Size = new System.Drawing.Size(500, 1226);
             this.panel3.TabIndex = 1;
             // 
             // panel5
@@ -195,7 +350,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Test2ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2746, 52);
+            this.menuStrip1.Size = new System.Drawing.Size(2746, 49);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -207,7 +362,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.SaveFileToolStripMenuItem,
             this.thoátToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            this.FileToolStripMenuItem.Size = new System.Drawing.Size(92, 48);
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(92, 45);
             this.FileToolStripMenuItem.Text = "Tệp";
             // 
             // CreateNewToolStripMenuItem
@@ -242,7 +397,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.EditSteelToolStripMenuItem,
             this.RemoveSteelToolStripMenuItem1});
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
-            this.EditToolStripMenuItem.Size = new System.Drawing.Size(173, 48);
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(173, 45);
             this.EditToolStripMenuItem.Text = "Chỉnh sửa";
             // 
             // AddSteelToolStripMenuItem
@@ -285,7 +440,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.ByDiameterToolStripMenuItem,
             this.ByCustomToolStripMenuItem});
             this.SyntheticToolStripMenuItem.Name = "SyntheticToolStripMenuItem";
-            this.SyntheticToolStripMenuItem.Size = new System.Drawing.Size(172, 48);
+            this.SyntheticToolStripMenuItem.Size = new System.Drawing.Size(172, 45);
             this.SyntheticToolStripMenuItem.Text = "Tổng hợp";
             // 
             // ByBatchingToolStripMenuItem
@@ -315,7 +470,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // OptimizeCuttingStripMenuItem
             // 
             this.OptimizeCuttingStripMenuItem.Name = "OptimizeCuttingStripMenuItem";
-            this.OptimizeCuttingStripMenuItem.Size = new System.Drawing.Size(173, 48);
+            this.OptimizeCuttingStripMenuItem.Size = new System.Drawing.Size(173, 45);
             this.OptimizeCuttingStripMenuItem.Text = "Tối ưu cắt";
             // 
             // PrintToolStripMenuItem
@@ -324,7 +479,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.DocumentToolStripMenuItem,
             this.SheetToolStripMenuItem});
             this.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem";
-            this.PrintToolStripMenuItem.Size = new System.Drawing.Size(67, 48);
+            this.PrintToolStripMenuItem.Size = new System.Drawing.Size(67, 45);
             this.PrintToolStripMenuItem.Text = "In";
             // 
             // DocumentToolStripMenuItem
@@ -342,15 +497,16 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // Test1ToolStripMenuItem
             // 
             this.Test1ToolStripMenuItem.Name = "Test1ToolStripMenuItem";
-            this.Test1ToolStripMenuItem.Size = new System.Drawing.Size(118, 48);
+            this.Test1ToolStripMenuItem.Size = new System.Drawing.Size(118, 45);
             this.Test1ToolStripMenuItem.Text = "Test 1";
             this.Test1ToolStripMenuItem.Click += new System.EventHandler(this.Test1ToolStripMenuItem_Click);
             // 
             // Test2ToolStripMenuItem
             // 
             this.Test2ToolStripMenuItem.Name = "Test2ToolStripMenuItem";
-            this.Test2ToolStripMenuItem.Size = new System.Drawing.Size(118, 48);
+            this.Test2ToolStripMenuItem.Size = new System.Drawing.Size(118, 45);
             this.Test2ToolStripMenuItem.Text = "Test 2";
+            this.Test2ToolStripMenuItem.Click += new System.EventHandler(this.Test2ToolStripMenuItem_Click);
             // 
             // Main_Interface_Form
             // 
@@ -368,7 +524,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -387,7 +543,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView MainDataGridView;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -416,6 +572,19 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.ToolStripMenuItem Test2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RemoveSteelToolStripMenuItem1;
         private System.Windows.Forms.Label TestLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewImageColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalWeigh;
     }
 }
 

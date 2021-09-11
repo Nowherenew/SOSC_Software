@@ -14,7 +14,10 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
     public partial class Main_Interface_Form : Form
     {
         string connectionString = "Data Source=DESKTOP-4P0S6LP;Initial Catalog=SOSC_Database;Integrated Security=True";
-        int ID;
+        public static class Globals
+        {
+            public static int IDForAll;
+        }
         public Main_Interface_Form()
         {
             InitializeComponent();
@@ -23,26 +26,29 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 sqlConnection.Open();
                 using(SqlCommand sqlCommand=new SqlCommand("",sqlConnection))
                 {
-                    sqlCommand.CommandText = "SELECT MAX(ID) FROM Statictiscal_Table;";
-                    //sqlCommand.CommandType = CommandType.Text;
-                    using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                    sqlCommand.CommandText = "SELECT COUNT(*) FROM Statictiscal_Table;";
+                    sqlCommand.CommandType = CommandType.Text;
+                    int RowCount = (int)sqlCommand.ExecuteScalar();
+                    if (RowCount != 0)
                     {
-
-                        if (sqlDataReader.HasRows)
+                        sqlCommand.CommandText = "SELECT DISTINCT ID FROM Statictiscal_Table WHERE ID=(SELECT max(id) FROM Statictiscal_Table);";
+                        using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
                         {
+
                             while (sqlDataReader.Read())
                             {
-                                ID = int.Parse(sqlDataReader["ID"].ToString());
+                                Globals.IDForAll = int.Parse(sqlDataReader["ID"].ToString());
                             }
                         }
-                        else
-                        {
-                            ID = 1;
-                        }
+                    }
+                    else
+                    {
+                        Globals.IDForAll = 1;
                     }
                 }
                 sqlConnection.Close();
             }
+            TestLabel.Text = "" + Globals.IDForAll;
         }
         private void SteelEdition_click(object sender, EventArgs e)
         {
@@ -52,9 +58,9 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 using (Steel_Edition_Form steel_Edition_Form = new Steel_Edition_Form())
                 {
                     steel_Edition_Form.ShowDialog();
-                    steel_Edition_Form.Dispose();
                 }
                 GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
         }
 
@@ -62,6 +68,21 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         {
             GC.Collect();
             GC.WaitForPendingFinalizers();
+        }
+
+        private void Test2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Statictiscal_Table ORDER BY ID", sqlConnection))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sqlDataAdapter.Fill(dt);
+                        MainDataGridView.DataSource = dt;
+                    }
+                }
+            }
         }
     }
 }

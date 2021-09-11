@@ -592,55 +592,55 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 
             for (int i = 0; i < LengthTextBoxes.Count; i++)
             {
-                if(LengthTextBoxes[i].Tag=="lx1"&&LengthTextBoxes[i].Text!="")
+                if ((string)LengthTextBoxes[i].Tag == "lx1" && LengthTextBoxes[i].Text != "")
                 {
                     lx1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if(LengthTextBoxes[i].Tag == "lx2" && LengthTextBoxes[i].Text != "")
+                else if((string)LengthTextBoxes[i].Tag == "lx2" && LengthTextBoxes[i].Text != "")
                 {
                     lx2 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lx3" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "lx3" && LengthTextBoxes[i].Text != "")
                 {
                     lx3 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "ly1" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "ly1" && LengthTextBoxes[i].Text != "")
                 {
                     ly1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "ly2" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "ly2" && LengthTextBoxes[i].Text != "")
                 {
                     ly2 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lnx1" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "lnx1" && LengthTextBoxes[i].Text != "")
                 {
                     lnx1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lnx2" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "lnx2" && LengthTextBoxes[i].Text != "")
                 {
                     lnx2 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lny1" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "lny1" && LengthTextBoxes[i].Text != "")
                 {
                     lny1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "lny2" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "lny2" && LengthTextBoxes[i].Text != "")
                 {
                     lny2 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "dlx1" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "dlx1" && LengthTextBoxes[i].Text != "")
                 {
                     dlx1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "alx1" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "alx1" && LengthTextBoxes[i].Text != "")
                 {
                     alx1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "bly1" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "bly1" && LengthTextBoxes[i].Text != "")
                 {
                     bly1 = int.Parse(LengthTextBoxes[i].Text);
                 }
-                else if (LengthTextBoxes[i].Tag == "hook" && LengthTextBoxes[i].Text != "")
+                else if ((string)LengthTextBoxes[i].Tag == "hook" && LengthTextBoxes[i].Text != "")
                 {
                     hook = int.Parse(LengthTextBoxes[i].Text);
                 }
@@ -841,6 +841,14 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             {
                 MessageBox.Show("Hãy nhập đầy đủ kích thước", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if(BarLength>11700)
+            {
+                MessageBox.Show("Chiều dài quá 11.7m", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }    
+            else
+            {
+                SQLNew();
+            }
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
@@ -853,39 +861,42 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 using (SqlCommand sqlCommand = new SqlCommand("", sqlConnection))
                 {
 
-
-                    string Values = "";
-                    sqlCommand.CommandText = "INSERT INTO Statictiscal_Table (ID,Batching,ComponentName,ComponentSign,SteelSign,Shape,Diameter,NumberOfComponent,BarPerComponenent,TotalBar,LengthPerBar,TotalLength,TotalWeigh,Curling45,Curling90,Curling135,ShapeTag) VALUES (@iD,@batching,@componentName,@componentSign,@steelSign,@shape,@diameter,@numberOfComponent,@barPerComponenent,@totalBar,@lengthPerBar,@totalLength,@totalWeigh,@curling45,@curling90,@curling135,@shapeTag)";
-                    sqlCommand.Parameters.AddWithValue("@iD", ImageBytes);
-                    sqlCommand.Parameters.AddWithValue("@batching", BatchingTextBox.Text);
-                    sqlCommand.Parameters.AddWithValue("@componentName", ComponentNameTextBox.Text);
-                    sqlCommand.Parameters.AddWithValue("@componentSign", ComponentSignTextBox.Text);
-                    sqlCommand.Parameters.AddWithValue("@steelSign", SteelSignTextBox.Text);
+                    int TotalBar = int.Parse(NumberOfComponentTextBox.Text) * int.Parse(BarPerComponentTextBox.Text);
+                    double Diameter = double.Parse(DiameterComboBox.Text) / 1000;
+                    double TotalLength = (BarLength * TotalBar)/1000;
+                    double TotalWeigh = 7850 * TotalLength * Math.PI * Diameter * Diameter;
+                    TotalWeigh = TotalWeigh / 4;
+                    Main_Interface_Form.Globals.IDForAll++;
+                    sqlCommand.CommandText = "INSERT INTO Statictiscal_Table (ID, Batching, ComponentName, ComponentSign, SteelSign, Shape, Diameter, NumberOfComponent, BarPerComponent, TotalBar, LengthPerBar, TotalLength, TotalWeigh, Curling45, Curling90, Curling135, ShapeTag)" +
+                                                                    "VALUES (@iD,@batching,@componentName,@componentSign,@steelSign,@shape,@diameter,@numberOfComponent,@barPerComponent,@totalBar,@lengthPerBar,@totalLength,@totalWeigh,@curling45,@curling90,@curling135,@shapeTag);";
+                    sqlCommand.Parameters.AddWithValue("@iD", Main_Interface_Form.Globals.IDForAll);
+                    sqlCommand.Parameters.AddWithValue("@batching", BatchingTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@componentName", ComponentNameTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@componentSign", ComponentSignTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@steelSign", SteelSignTextBox.Text.Trim());
                     sqlCommand.Parameters.AddWithValue("@shape", ImageBytes);
-                    sqlCommand.Parameters.AddWithValue("@diameter", DiameterComboBox.Text);
-                    sqlCommand.Parameters.AddWithValue("@numberOfComponent", NumberOfComponentTextBox.Text);
-                    sqlCommand.Parameters.AddWithValue("@barPerComponenent", BarPerComponentTextBox.Text);
-                    sqlCommand.Parameters.AddWithValue("@totalBar", );
-                    sqlCommand.Parameters.AddWithValue("@lengthPerBar", );
-                    sqlCommand.Parameters.AddWithValue("@totalLength", );
-                    sqlCommand.Parameters.AddWithValue("@totalWeigh", );
-                    sqlCommand.Parameters.AddWithValue("@culing45", Curling45TextBox.Text);
-                    sqlCommand.Parameters.AddWithValue("@culing90", Curling90TextBox.Text);
-                    sqlCommand.Parameters.AddWithValue("@culing135", Curling135TextBox.Text);
-                    sqlCommand.Parameters.AddWithValue("@shapeTag", ShapePictureBox.Tag);
+                    sqlCommand.Parameters.AddWithValue("@diameter", DiameterComboBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@numberOfComponent", NumberOfComponentTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@barPerComponent", BarPerComponentTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@totalBar", TotalBar);
+                    sqlCommand.Parameters.AddWithValue("@lengthPerBar", BarLength);
+                    sqlCommand.Parameters.AddWithValue("@totalLength", TotalLength);
+                    sqlCommand.Parameters.AddWithValue("@totalWeigh", TotalWeigh);
+                    sqlCommand.Parameters.AddWithValue("@curling45", Curling45TextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@curling90", Curling90TextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@curling135", Curling135TextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@shapeTag", (string)ShapePictureBox.Tag);
                     sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.ExecuteNonQuery();
-                }
-                /*
-                using(SqlDataAdapter sqlDataAdapter =new SqlDataAdapter("SELECT Shape FROM Statictiscal_Table", sqlConnection))
-                {
-                    using (DataTable dt=new DataTable())
+                    int SQLExecuteNonQuertyDone=sqlCommand.ExecuteNonQuery();
+                    if(SQLExecuteNonQuertyDone==0)
                     {
-                        sqlDataAdapter.Fill(dt);
-                        dataGridView1.DataSource = dt;
+                        MessageBox.Show("Lỗi khi lưu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã lưu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                */
                 sqlConnection.Close();
             }
         }
@@ -898,5 +909,9 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 
         }
         public int All{ get; set; }
+
+        private void Steel_Edition_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        }
     }
 }
