@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 {
@@ -14,6 +17,8 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
     {
         List<TextBox> LengthTextBoxes;
         double BarLength = 0;
+        byte[] ImageBytes;
+        string connectionString = "Data Source=DESKTOP-4P0S6LP;Initial Catalog=SOSC_Database;Integrated Security=True";
         public Steel_Edition_Form()
         {
             InitializeComponent();
@@ -30,9 +35,19 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 LengthTextBoxes[i].Text = "";
                 LengthTextBoxes[i].Visible = false;
             }
+            string PicturePath = "B:/Software Data/VisualStudio/SOSC_Software/Stactistics And Optimization Of Steel Cutting (Without .Net Framework)/Resources/" + ShapePictureBox.Tag + "_NCM.jpg";
+            if (ShapePictureBox.BackgroundImage != null)
+            {
+                ShapePictureBox.BackgroundImage.Dispose();
+                ShapePictureBox.BackgroundImage = Image.FromFile(PicturePath);
+            }
+            else
+            {
+                ShapePictureBox.BackgroundImage = Image.FromFile(PicturePath);
+            }
             if (PictureBoxTag == "1")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._1_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._1_NCM;
                 PointX = ShapePictureBox.Location.X + 378;
                 PointY = ShapePictureBox.Location.Y + 173;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -42,7 +57,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "2")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._2_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._2_NCM;
                 PointX = ShapePictureBox.Location.X + 378;
                 PointY = ShapePictureBox.Location.Y + 173;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -56,7 +71,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "3")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._3_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._3_NCM;
                 PointX = ShapePictureBox.Location.X + 378;
                 PointY = ShapePictureBox.Location.Y + 83;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -70,7 +85,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "4")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._4_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._4_NCM;
                 PointX = ShapePictureBox.Location.X + 23;
                 PointY = ShapePictureBox.Location.Y + 243;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -104,7 +119,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "5")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._5_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._5_NCM;
                 PointX = ShapePictureBox.Location.X + 23;
                 PointY = ShapePictureBox.Location.Y + 243;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -133,7 +148,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "6")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._6_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._6_NCM;
                 PointX = ShapePictureBox.Location.X + 23;
                 PointY = ShapePictureBox.Location.Y + 243;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -162,7 +177,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "7")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._7_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._7_NCM;
                 PointX = ShapePictureBox.Location.X + 23;
                 PointY = ShapePictureBox.Location.Y + 243;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -191,7 +206,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "8")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._8_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._8_NCM;
                 PointX = ShapePictureBox.Location.X + 378;
                 PointY = ShapePictureBox.Location.Y + 83;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -205,7 +220,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "9")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._9_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._9_NCM;
                 PointX = ShapePictureBox.Location.X + 123;
                 PointY = ShapePictureBox.Location.Y + 153;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -244,7 +259,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "10")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._10_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._10_NCM;
                 PointX = ShapePictureBox.Location.X + 233;
                 PointY = ShapePictureBox.Location.Y + 353;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -263,7 +278,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "11")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._11_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._11_NCM;
                 PointX = ShapePictureBox.Location.X + 23;
                 PointY = ShapePictureBox.Location.Y + 173;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -283,7 +298,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "12")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._12_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._12_NCM;
                 PointX = ShapePictureBox.Location.X + 23;
                 PointY = ShapePictureBox.Location.Y + 173;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -297,7 +312,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "13")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._13_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._13_NCM;
                 PointX = ShapePictureBox.Location.X + 23;
                 PointY = ShapePictureBox.Location.Y + 173;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -316,7 +331,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "14")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._14_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._14_NCM;
                 PointX = ShapePictureBox.Location.X + 183;
                 PointY = ShapePictureBox.Location.Y + 83;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -340,7 +355,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "15")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._15_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._15_NCM;
                 PointX = ShapePictureBox.Location.X + 233;
                 PointY = ShapePictureBox.Location.Y + 83;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -359,7 +374,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "16")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._16_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._16_NCM;
                 PointX = ShapePictureBox.Location.X + 378;
                 PointY = ShapePictureBox.Location.Y + 173;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -373,7 +388,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "17")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._17_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._17_NCM;
                 PointX = ShapePictureBox.Location.X + 143;
                 PointY = ShapePictureBox.Location.Y + 173;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -392,7 +407,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "18")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._18_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._18_NCM;
                 PointX = ShapePictureBox.Location.X + 378;
                 PointY = ShapePictureBox.Location.Y + 83;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -411,7 +426,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "19")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._19_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._19_NCM;
                 PointX = ShapePictureBox.Location.X + 23;
                 PointY = ShapePictureBox.Location.Y + 173;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -435,7 +450,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "20")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._20_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._20_NCM;
                 PointX = ShapePictureBox.Location.X + 233;
                 PointY = ShapePictureBox.Location.Y + 353;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -459,7 +474,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "21")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._21_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._21_NCM;
                 PointX = ShapePictureBox.Location.X + 23;
                 PointY = ShapePictureBox.Location.Y + 243;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -478,7 +493,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }
             else if (PictureBoxTag == "22")
             {
-                ShapePictureBox.BackgroundImage = Properties.Resources._22_NCM;
+                //ShapePictureBox.BackgroundImage = Properties.Resources._22_NCM;
                 PointX = ShapePictureBox.Location.X + 233;
                 PointY = ShapePictureBox.Location.Y + 83;
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
@@ -513,6 +528,14 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 
             // only allow one decimal point
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        private void LentghTextBox_InputNumber_Only(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
@@ -711,12 +734,168 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             {
                 BarLength = lx1 + lx2 + ly1 + ly2 - (3 * c90);
             }
-            TestLabel.Text = "" + BarLength;
+            LengthTextBox.Text = "Kích thước (mm): " + BarLength;
+        }
+        private void InsertTextPictureBox()
+        {
+            string PicturePath = "B:/Software Data/VisualStudio/SOSC_Software/Stactistics And Optimization Of Steel Cutting (Without .Net Framework)/Resources/" + ShapePictureBox.Tag + "_NCM.jpg";
+            using (Image DrawedImage = Image.FromFile(PicturePath))
+            {
+                using (Graphics graphics = Graphics.FromImage(DrawedImage))
+                {
+                    using (Font arialFont = new Font("Time New Roman", 40))
+                    {
+                        for (int i = 0; i < LengthTextBoxes.Count; i++)
+                        {
+                            if (LengthTextBoxes[i].Visible == true)
+                            {
+                                float PX, PY;
+                                int px, py;
+                                PX = LengthTextBoxes[i].Location.X - ShapePictureBox.Location.X;
+                                PY = LengthTextBoxes[i].Location.Y - ShapePictureBox.Location.Y;
+
+                                PX = (PX * 100) / ShapePictureBox.Size.Width;
+                                PY = (PY * 100) / ShapePictureBox.Size.Height;
+
+                                PX = PX * (DrawedImage.Size.Width / 100);
+                                PY = PY * (DrawedImage.Size.Height / 100);
+
+                                px = (int)PX;
+                                py = (int)PY;
+                                Point TextBoxPoint = new Point(px, py);
+                                graphics.DrawString(LengthTextBoxes[i].Text, arialFont, Brushes.Blue, TextBoxPoint);
+                            }
+                        }
+                        using (MemoryStream memoryStream = new MemoryStream())
+                        {
+                            DrawedImage.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            ImageBytes = memoryStream.ToArray();
+
+                            TestLabel.Text = "OK " + ImageBytes.Length;
+                        }
+                    }
+                }
+            }
         }
         private void AcceptButton_Click(object sender, EventArgs e)
         {
+            bool LengthTextBoxesFilled = true;
+            for (int i = 0; i < LengthTextBoxes.Count; i++)
+            {
+                if(LengthTextBoxes[i].Visible==true)
+                {
+                    if(LengthTextBoxes[i].Text=="")
+                    {
+                        LengthTextBoxesFilled = false;
+                    }
+                    else
+                    {
+                        if(int.Parse(LengthTextBoxes[i].Text)==0)
+                        {
+                            LengthTextBoxesFilled = false;
+                        }
+                    }
+                }
+            }
+            if (BatchingTextBox.Text == "")
+            {
+                MessageBox.Show("Hãy nhập phân đợt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (ComponentNameTextBox.Text == "")
+            {
+                MessageBox.Show("Hãy nhập tên cấu kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (ComponentNameTextBox.Text == "")
+            {
+                MessageBox.Show("Hãy nhập tên cấu kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (ComponentSignTextBox.Text == "")
+            {
+                MessageBox.Show("Hãy nhập kí hiệu cấu kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (NumberOfComponentTextBox.Text == "")
+            {
+                MessageBox.Show("Hãy nhập số lượng cấu kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (Curling45TextBox.Text == "")
+            {
+                MessageBox.Show("Hãy nhập độ giãn uốn 45°", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (Curling90TextBox.Text == "")
+            {
+                MessageBox.Show("Hãy nhập độ giãn uốn 45°", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (Curling135TextBox.Text == "")
+            {
+                MessageBox.Show("Hãy nhập độ giãn uốn 135° - 180°", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (BarPerComponentTextBox.Text == "")
+            {
+                MessageBox.Show("Hãy nhập số thanh / cấu kiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (DiameterComboBox.Text == "")
+            {
+                MessageBox.Show("Hãy chọn đường kính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (LengthTextBoxesFilled == false)
+            {
+                MessageBox.Show("Hãy nhập đầy đủ kích thước", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             GC.Collect();
             GC.WaitForPendingFinalizers();
+        }
+        private void SQLNew()
+        {
+            InsertTextPictureBox();
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("", sqlConnection))
+                {
+
+
+                    string Values = "";
+                    sqlCommand.CommandText = "INSERT INTO Statictiscal_Table (ID,Batching,ComponentName,ComponentSign,SteelSign,Shape,Diameter,NumberOfComponent,BarPerComponenent,TotalBar,LengthPerBar,TotalLength,TotalWeigh,Curling45,Curling90,Curling135,ShapeTag) VALUES (@iD,@batching,@componentName,@componentSign,@steelSign,@shape,@diameter,@numberOfComponent,@barPerComponenent,@totalBar,@lengthPerBar,@totalLength,@totalWeigh,@curling45,@curling90,@curling135,@shapeTag)";
+                    sqlCommand.Parameters.AddWithValue("@iD", ImageBytes);
+                    sqlCommand.Parameters.AddWithValue("@batching", BatchingTextBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@componentName", ComponentNameTextBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@componentSign", ComponentSignTextBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@steelSign", SteelSignTextBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@shape", ImageBytes);
+                    sqlCommand.Parameters.AddWithValue("@diameter", DiameterComboBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@numberOfComponent", NumberOfComponentTextBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@barPerComponenent", BarPerComponentTextBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@totalBar", );
+                    sqlCommand.Parameters.AddWithValue("@lengthPerBar", );
+                    sqlCommand.Parameters.AddWithValue("@totalLength", );
+                    sqlCommand.Parameters.AddWithValue("@totalWeigh", );
+                    sqlCommand.Parameters.AddWithValue("@culing45", Curling45TextBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@culing90", Curling90TextBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@culing135", Curling135TextBox.Text);
+                    sqlCommand.Parameters.AddWithValue("@shapeTag", ShapePictureBox.Tag);
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.ExecuteNonQuery();
+                }
+                /*
+                using(SqlDataAdapter sqlDataAdapter =new SqlDataAdapter("SELECT Shape FROM Statictiscal_Table", sqlConnection))
+                {
+                    using (DataTable dt=new DataTable())
+                    {
+                        sqlDataAdapter.Fill(dt);
+                        dataGridView1.DataSource = dt;
+                    }
+                }
+                */
+                sqlConnection.Close();
+            }
+        }
+        private void SQLInsert()
+        {
+
+        }
+        private void SQLEdit()
+        {
+
         }
         public int All{ get; set; }
     }

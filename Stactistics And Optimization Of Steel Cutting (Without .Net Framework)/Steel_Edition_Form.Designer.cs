@@ -96,7 +96,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel3 = new System.Windows.Forms.Panel();
             this.CancelButton = new System.Windows.Forms.Button();
             this.AcceptButton = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.Length7TextBox = new System.Windows.Forms.TextBox();
             this.Length5TextBox = new System.Windows.Forms.TextBox();
             this.Length6TextBox = new System.Windows.Forms.TextBox();
@@ -105,12 +104,9 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length2TextBox = new System.Windows.Forms.TextBox();
             this.Length1TextBox = new System.Windows.Forms.TextBox();
             this.DiameterComboBox = new System.Windows.Forms.ComboBox();
-            this.HookLengthTextBox = new System.Windows.Forms.TextBox();
             this.BarPerComponentTextBox = new System.Windows.Forms.TextBox();
-            this.NumberOfSteelTextBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.SteelSignTextBox = new System.Windows.Forms.TextBox();
+            this.LengthTextBox = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -795,7 +791,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(218, 696);
+            this.textBox1.Location = new System.Drawing.Point(241, 612);
             this.textBox1.MaxLength = 5;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(93, 47);
@@ -817,6 +813,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Curling135TextBox.Name = "Curling135TextBox";
             this.Curling135TextBox.Size = new System.Drawing.Size(251, 47);
             this.Curling135TextBox.TabIndex = 27;
+            this.Curling135TextBox.Text = "1.5";
             this.Curling135TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
             this.Curling135TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
             // 
@@ -827,6 +824,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Curling90TextBox.Name = "Curling90TextBox";
             this.Curling90TextBox.Size = new System.Drawing.Size(251, 47);
             this.Curling90TextBox.TabIndex = 26;
+            this.Curling90TextBox.Text = "1";
             this.Curling90TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
             this.Curling90TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
             // 
@@ -837,6 +835,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Curling45TextBox.Name = "Curling45TextBox";
             this.Curling45TextBox.Size = new System.Drawing.Size(251, 47);
             this.Curling45TextBox.TabIndex = 25;
+            this.Curling45TextBox.Text = "0.5";
             this.Curling45TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
             this.Curling45TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
             // 
@@ -959,7 +958,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // 
             this.panel3.Controls.Add(this.CancelButton);
             this.panel3.Controls.Add(this.AcceptButton);
-            this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.Length7TextBox);
             this.panel3.Controls.Add(this.Length5TextBox);
             this.panel3.Controls.Add(this.Length6TextBox);
@@ -968,12 +966,9 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel3.Controls.Add(this.Length2TextBox);
             this.panel3.Controls.Add(this.Length1TextBox);
             this.panel3.Controls.Add(this.DiameterComboBox);
-            this.panel3.Controls.Add(this.HookLengthTextBox);
             this.panel3.Controls.Add(this.BarPerComponentTextBox);
-            this.panel3.Controls.Add(this.NumberOfSteelTextBox);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.SteelSignTextBox);
+            this.panel3.Controls.Add(this.LengthTextBox);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label8);
@@ -982,7 +977,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(1360, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(964, 948);
+            this.panel3.Size = new System.Drawing.Size(933, 948);
             this.panel3.TabIndex = 2;
             // 
             // CancelButton
@@ -1004,15 +999,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.AcceptButton.UseVisualStyleBackColor = true;
             this.AcceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(853, 74);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(36, 41);
-            this.label17.TabIndex = 34;
-            this.label17.Text = "d";
-            // 
             // Length7TextBox
             // 
             this.Length7TextBox.Location = new System.Drawing.Point(813, 337);
@@ -1022,7 +1008,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length7TextBox.TabIndex = 33;
             this.Length7TextBox.Visible = false;
             this.Length7TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
-            this.Length7TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
+            this.Length7TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LentghTextBox_InputNumber_Only);
             // 
             // Length5TextBox
             // 
@@ -1033,7 +1019,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length5TextBox.TabIndex = 32;
             this.Length5TextBox.Visible = false;
             this.Length5TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
-            this.Length5TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
+            this.Length5TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LentghTextBox_InputNumber_Only);
             // 
             // Length6TextBox
             // 
@@ -1044,7 +1030,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length6TextBox.TabIndex = 32;
             this.Length6TextBox.Visible = false;
             this.Length6TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
-            this.Length6TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
+            this.Length6TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LentghTextBox_InputNumber_Only);
             // 
             // Length4TextBox
             // 
@@ -1055,7 +1041,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length4TextBox.TabIndex = 31;
             this.Length4TextBox.Visible = false;
             this.Length4TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
-            this.Length4TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
+            this.Length4TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LentghTextBox_InputNumber_Only);
             // 
             // Length3TextBox
             // 
@@ -1066,7 +1052,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length3TextBox.TabIndex = 30;
             this.Length3TextBox.Visible = false;
             this.Length3TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
-            this.Length3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
+            this.Length3TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LentghTextBox_InputNumber_Only);
             // 
             // Length2TextBox
             // 
@@ -1077,7 +1063,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length2TextBox.TabIndex = 29;
             this.Length2TextBox.Visible = false;
             this.Length2TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
-            this.Length2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
+            this.Length2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LentghTextBox_InputNumber_Only);
             // 
             // Length1TextBox
             // 
@@ -1088,7 +1074,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length1TextBox.TabIndex = 28;
             this.Length1TextBox.Visible = false;
             this.Length1TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
-            this.Length1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
+            this.Length1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LentghTextBox_InputNumber_Only);
             // 
             // DiameterComboBox
             // 
@@ -1114,14 +1100,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.DiameterComboBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
             this.DiameterComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
             // 
-            // HookLengthTextBox
-            // 
-            this.HookLengthTextBox.Location = new System.Drawing.Point(748, 74);
-            this.HookLengthTextBox.MaxLength = 5;
-            this.HookLengthTextBox.Name = "HookLengthTextBox";
-            this.HookLengthTextBox.Size = new System.Drawing.Size(99, 47);
-            this.HookLengthTextBox.TabIndex = 22;
-            // 
             // BarPerComponentTextBox
             // 
             this.BarPerComponentTextBox.Location = new System.Drawing.Point(304, 139);
@@ -1131,40 +1109,22 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.BarPerComponentTextBox.TabIndex = 21;
             this.BarPerComponentTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputNumber_Only);
             // 
-            // NumberOfSteelTextBox
+            // SteelSignTextBox
             // 
-            this.NumberOfSteelTextBox.Location = new System.Drawing.Point(304, 74);
-            this.NumberOfSteelTextBox.MaxLength = 5;
-            this.NumberOfSteelTextBox.Name = "NumberOfSteelTextBox";
-            this.NumberOfSteelTextBox.Size = new System.Drawing.Size(160, 47);
-            this.NumberOfSteelTextBox.TabIndex = 20;
+            this.SteelSignTextBox.Location = new System.Drawing.Point(304, 74);
+            this.SteelSignTextBox.MaxLength = 5;
+            this.SteelSignTextBox.Name = "SteelSignTextBox";
+            this.SteelSignTextBox.Size = new System.Drawing.Size(160, 47);
+            this.SteelSignTextBox.TabIndex = 20;
             // 
-            // label12
+            // LengthTextBox
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(13, 272);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(236, 41);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Kích thước (mm)";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(534, 139);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(291, 41);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Chiều dài móc: 0mm";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(534, 74);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(208, 41);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Chiều dài móc";
+            this.LengthTextBox.AutoSize = true;
+            this.LengthTextBox.Location = new System.Drawing.Point(13, 272);
+            this.LengthTextBox.Name = "LengthTextBox";
+            this.LengthTextBox.Size = new System.Drawing.Size(236, 41);
+            this.LengthTextBox.TabIndex = 11;
+            this.LengthTextBox.Text = "Kích thước (mm)";
             // 
             // label9
             // 
@@ -1215,7 +1175,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2324, 948);
+            this.ClientSize = new System.Drawing.Size(2293, 948);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1350,19 +1310,15 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.TextBox Length2TextBox;
         private System.Windows.Forms.TextBox Length1TextBox;
         private System.Windows.Forms.ComboBox DiameterComboBox;
-        private System.Windows.Forms.TextBox HookLengthTextBox;
         private System.Windows.Forms.TextBox BarPerComponentTextBox;
-        private System.Windows.Forms.TextBox NumberOfSteelTextBox;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox SteelSignTextBox;
+        private System.Windows.Forms.Label LengthTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button AcceptButton;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label TestLabel;
         private System.Windows.Forms.TextBox textBox1;
     }

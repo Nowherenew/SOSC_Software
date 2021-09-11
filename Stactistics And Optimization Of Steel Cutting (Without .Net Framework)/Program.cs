@@ -17,7 +17,8 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_Interface_Form());
+            Application.Run(new Steel_Edition_Form());
+            //Application.Run(new Main_Interface_Form());
         }
     }
 }
