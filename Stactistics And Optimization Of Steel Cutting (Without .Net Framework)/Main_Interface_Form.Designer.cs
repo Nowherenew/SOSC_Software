@@ -451,7 +451,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.RemoveSteelToolStripMenuItem1.Size = new System.Drawing.Size(448, 54);
             this.RemoveSteelToolStripMenuItem1.Tag = "5";
             this.RemoveSteelToolStripMenuItem1.Text = "Xóa thép";
-            this.RemoveSteelToolStripMenuItem1.Click += new System.EventHandler(this.SteelEdition_click);
+            this.RemoveSteelToolStripMenuItem1.Click += new System.EventHandler(this.RemoveSteelToolStripMenuItem1_Click);
             // 
             // SyntheticToolStripMenuItem
             // 

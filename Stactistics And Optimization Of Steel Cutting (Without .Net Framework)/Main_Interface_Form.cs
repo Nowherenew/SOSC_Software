@@ -51,6 +51,8 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 }
                 sqlConnection.Close();
             }
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
         private void SteelEdition_click(object sender, EventArgs e)
         {
@@ -117,14 +119,14 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 }
                 sqlConnection.Close();
             }
-            MainDataGridView.HorizontalScrollingOffset = h;
+            MainDataGridView.FirstDisplayedScrollingRowIndex = h;
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
 
         private void MainDataGridView_Scroll(object sender, ScrollEventArgs e)
         {
-            h = MainDataGridView.HorizontalScrollingOffset;
+            h = MainDataGridView.FirstDisplayedScrollingRowIndex;
             TestLabel.Text = "" + h;
             GC.Collect();
             GC.WaitForPendingFinalizers();
@@ -136,6 +138,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             {
                 statistical_From.ShowDialog();
             }
+            Main_DataGridViewUpdate();
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
@@ -160,6 +163,30 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 EditToolStripMenuItem.DropDownItems[2].Enabled = true;
                 EditToolStripMenuItem.DropDownItems[3].Enabled = true;
             }
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+
+        private void RemoveSteelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int RowIndex = MainDataGridView.CurrentCell.RowIndex;
+            RowIndex++;
+            using (SqlConnection sqlConnection=new SqlConnection(Globals.connectionString))
+            {
+                sqlConnection.Open();
+                using(SqlCommand sqlCommand =new SqlCommand("",sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = "DELETE FROM Statictiscal_Table WHERE ID = " + RowIndex;
+                    sqlCommand.ExecuteNonQuery();
+                    sqlCommand.CommandText = "UPDATE Statictiscal_Table SET ID = ID - 1 WHERE ID > " + RowIndex;
+                    sqlCommand.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
+            Main_DataGridViewUpdate();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
     }
 }
