@@ -83,7 +83,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         {
             using (SqlConnection sqlConnection = new SqlConnection(Globals.connectionString))
             {
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Statictiscal_Table ORDER BY ID", sqlConnection))
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT ID,Batching,ComponentName,ComponentSign,SteelSign,Shape,Diameter,NumberOfComponent,BarPerComponent,TotalBar,LengthPerBar,TotalLength,TotalWeigh FROM Statictiscal_Table ORDER BY ID;", sqlConnection))
                 {
                     using (DataTable dt = new DataTable())
                     {
@@ -156,12 +156,20 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 EditToolStripMenuItem.DropDownItems[1].Enabled = false;
                 EditToolStripMenuItem.DropDownItems[2].Enabled = false;
                 EditToolStripMenuItem.DropDownItems[3].Enabled = false;
+
+                DataGridViewRigthClick.Items[1].Enabled = false;
+                DataGridViewRigthClick.Items[2].Enabled = false;
+                DataGridViewRigthClick.Items[3].Enabled = false;
             }
             else
             {
                 EditToolStripMenuItem.DropDownItems[1].Enabled = true;
                 EditToolStripMenuItem.DropDownItems[2].Enabled = true;
                 EditToolStripMenuItem.DropDownItems[3].Enabled = true;
+
+                DataGridViewRigthClick.Items[1].Enabled = true;
+                DataGridViewRigthClick.Items[2].Enabled = true;
+                DataGridViewRigthClick.Items[3].Enabled = true;
             }
             GC.Collect();
             GC.WaitForPendingFinalizers();
@@ -187,6 +195,20 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             Main_DataGridViewUpdate();
             GC.Collect();
             GC.WaitForPendingFinalizers();
+        }
+
+        private void MainDataGridView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int rowIndex = MainDataGridView.HitTest(e.X, e.Y).RowIndex;
+
+                // If there was no DataGridViewRow under the cursor, return
+                if (rowIndex == -1) { return; }
+                MainDataGridView.ClearSelection();
+                MainDataGridView.Rows[rowIndex].Selected = true;
+                DataGridViewRigthClick.Show(MainDataGridView, new Point(e.X, e.Y));
+            }
         }
     }
 }
