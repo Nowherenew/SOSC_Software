@@ -62,13 +62,11 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddSteelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InsertSteelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InsertUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InsertDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditSteelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveSteelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.SyntheticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ByBatchingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ByNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ByDiameterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ByCustomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OptimizeCuttingStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PrintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +89,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // 
             this.panel1.Controls.Add(this.TestLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 49);
+            this.panel1.Location = new System.Drawing.Point(0, 52);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2746, 72);
             this.panel1.TabIndex = 0;
@@ -110,9 +108,9 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel2.Controls.Add(this.tabControl1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 121);
+            this.panel2.Location = new System.Drawing.Point(0, 124);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2746, 1226);
+            this.panel2.Size = new System.Drawing.Size(2746, 1223);
             this.panel2.TabIndex = 1;
             // 
             // tabControl1
@@ -122,7 +120,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(2246, 1226);
+            this.tabControl1.Size = new System.Drawing.Size(2246, 1223);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -131,7 +129,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.tabPage1.Location = new System.Drawing.Point(10, 58);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(2226, 1158);
+            this.tabPage1.Size = new System.Drawing.Size(2226, 1155);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Bảng tổng hợp thép";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -166,8 +164,9 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.MainDataGridView.RowHeadersWidth = 200;
             this.MainDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.MainDataGridView.RowTemplate.Height = 400;
-            this.MainDataGridView.Size = new System.Drawing.Size(2220, 1152);
+            this.MainDataGridView.Size = new System.Drawing.Size(2220, 1149);
             this.MainDataGridView.TabIndex = 0;
+            this.MainDataGridView.Scroll += new System.Windows.Forms.ScrollEventHandler(this.MainDataGridView_Scroll);
             // 
             // Column1
             // 
@@ -296,7 +295,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(2246, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(500, 1226);
+            this.panel3.Size = new System.Drawing.Size(500, 1223);
             this.panel3.TabIndex = 1;
             // 
             // panel5
@@ -310,10 +309,13 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 102;
             this.dataGridView2.RowTemplate.Height = 49;
             this.dataGridView2.Size = new System.Drawing.Size(500, 684);
@@ -350,7 +352,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Test2ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2746, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(2746, 52);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -362,7 +364,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.SaveFileToolStripMenuItem,
             this.thoátToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            this.FileToolStripMenuItem.Size = new System.Drawing.Size(92, 45);
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(92, 48);
             this.FileToolStripMenuItem.Text = "Tệp";
             // 
             // CreateNewToolStripMenuItem
@@ -397,80 +399,71 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.EditSteelToolStripMenuItem,
             this.RemoveSteelToolStripMenuItem1});
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
-            this.EditToolStripMenuItem.Size = new System.Drawing.Size(173, 45);
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(173, 48);
             this.EditToolStripMenuItem.Text = "Chỉnh sửa";
+            this.EditToolStripMenuItem.DropDownOpening += new System.EventHandler(this.EditToolStripMenuItem_DropDownOpening);
             // 
             // AddSteelToolStripMenuItem
             // 
             this.AddSteelToolStripMenuItem.Name = "AddSteelToolStripMenuItem";
-            this.AddSteelToolStripMenuItem.Size = new System.Drawing.Size(328, 54);
+            this.AddSteelToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.AddSteelToolStripMenuItem.Tag = "1";
             this.AddSteelToolStripMenuItem.Text = "Thêm thép";
             this.AddSteelToolStripMenuItem.Click += new System.EventHandler(this.SteelEdition_click);
             // 
             // InsertSteelToolStripMenuItem
             // 
+            this.InsertSteelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.InsertUpToolStripMenuItem,
+            this.InsertDownToolStripMenuItem});
             this.InsertSteelToolStripMenuItem.Name = "InsertSteelToolStripMenuItem";
-            this.InsertSteelToolStripMenuItem.Size = new System.Drawing.Size(328, 54);
+            this.InsertSteelToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.InsertSteelToolStripMenuItem.Tag = "2";
             this.InsertSteelToolStripMenuItem.Text = "Chèn thép";
-            this.InsertSteelToolStripMenuItem.Click += new System.EventHandler(this.SteelEdition_click);
+            // 
+            // InsertUpToolStripMenuItem
+            // 
+            this.InsertUpToolStripMenuItem.Name = "InsertUpToolStripMenuItem";
+            this.InsertUpToolStripMenuItem.Size = new System.Drawing.Size(345, 54);
+            this.InsertUpToolStripMenuItem.Tag = "2";
+            this.InsertUpToolStripMenuItem.Text = "Chèn lên";
+            this.InsertUpToolStripMenuItem.Click += new System.EventHandler(this.SteelEdition_click);
+            // 
+            // InsertDownToolStripMenuItem
+            // 
+            this.InsertDownToolStripMenuItem.Name = "InsertDownToolStripMenuItem";
+            this.InsertDownToolStripMenuItem.Size = new System.Drawing.Size(345, 54);
+            this.InsertDownToolStripMenuItem.Tag = "3";
+            this.InsertDownToolStripMenuItem.Text = "Chèn xuống";
+            this.InsertDownToolStripMenuItem.Click += new System.EventHandler(this.SteelEdition_click);
             // 
             // EditSteelToolStripMenuItem
             // 
             this.EditSteelToolStripMenuItem.Name = "EditSteelToolStripMenuItem";
-            this.EditSteelToolStripMenuItem.Size = new System.Drawing.Size(328, 54);
-            this.EditSteelToolStripMenuItem.Tag = "3";
+            this.EditSteelToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.EditSteelToolStripMenuItem.Tag = "4";
             this.EditSteelToolStripMenuItem.Text = "Sửa thép";
             this.EditSteelToolStripMenuItem.Click += new System.EventHandler(this.SteelEdition_click);
             // 
             // RemoveSteelToolStripMenuItem1
             // 
             this.RemoveSteelToolStripMenuItem1.Name = "RemoveSteelToolStripMenuItem1";
-            this.RemoveSteelToolStripMenuItem1.Size = new System.Drawing.Size(328, 54);
-            this.RemoveSteelToolStripMenuItem1.Tag = "4";
+            this.RemoveSteelToolStripMenuItem1.Size = new System.Drawing.Size(448, 54);
+            this.RemoveSteelToolStripMenuItem1.Tag = "5";
             this.RemoveSteelToolStripMenuItem1.Text = "Xóa thép";
             this.RemoveSteelToolStripMenuItem1.Click += new System.EventHandler(this.SteelEdition_click);
             // 
             // SyntheticToolStripMenuItem
             // 
-            this.SyntheticToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ByBatchingToolStripMenuItem,
-            this.ByNameToolStripMenuItem,
-            this.ByDiameterToolStripMenuItem,
-            this.ByCustomToolStripMenuItem});
             this.SyntheticToolStripMenuItem.Name = "SyntheticToolStripMenuItem";
-            this.SyntheticToolStripMenuItem.Size = new System.Drawing.Size(172, 45);
+            this.SyntheticToolStripMenuItem.Size = new System.Drawing.Size(172, 48);
             this.SyntheticToolStripMenuItem.Text = "Tổng hợp";
-            // 
-            // ByBatchingToolStripMenuItem
-            // 
-            this.ByBatchingToolStripMenuItem.Name = "ByBatchingToolStripMenuItem";
-            this.ByBatchingToolStripMenuItem.Size = new System.Drawing.Size(419, 54);
-            this.ByBatchingToolStripMenuItem.Text = "Theo phân đợt";
-            // 
-            // ByNameToolStripMenuItem
-            // 
-            this.ByNameToolStripMenuItem.Name = "ByNameToolStripMenuItem";
-            this.ByNameToolStripMenuItem.Size = new System.Drawing.Size(419, 54);
-            this.ByNameToolStripMenuItem.Text = "Theo tên cấu kiện";
-            // 
-            // ByDiameterToolStripMenuItem
-            // 
-            this.ByDiameterToolStripMenuItem.Name = "ByDiameterToolStripMenuItem";
-            this.ByDiameterToolStripMenuItem.Size = new System.Drawing.Size(419, 54);
-            this.ByDiameterToolStripMenuItem.Text = "Theo đường kính";
-            // 
-            // ByCustomToolStripMenuItem
-            // 
-            this.ByCustomToolStripMenuItem.Name = "ByCustomToolStripMenuItem";
-            this.ByCustomToolStripMenuItem.Size = new System.Drawing.Size(419, 54);
-            this.ByCustomToolStripMenuItem.Text = "Tùy chọn";
+            this.SyntheticToolStripMenuItem.Click += new System.EventHandler(this.SyntheticToolStripMenuItem_Click);
             // 
             // OptimizeCuttingStripMenuItem
             // 
             this.OptimizeCuttingStripMenuItem.Name = "OptimizeCuttingStripMenuItem";
-            this.OptimizeCuttingStripMenuItem.Size = new System.Drawing.Size(173, 45);
+            this.OptimizeCuttingStripMenuItem.Size = new System.Drawing.Size(173, 48);
             this.OptimizeCuttingStripMenuItem.Text = "Tối ưu cắt";
             // 
             // PrintToolStripMenuItem
@@ -479,7 +472,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.DocumentToolStripMenuItem,
             this.SheetToolStripMenuItem});
             this.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem";
-            this.PrintToolStripMenuItem.Size = new System.Drawing.Size(67, 45);
+            this.PrintToolStripMenuItem.Size = new System.Drawing.Size(67, 48);
             this.PrintToolStripMenuItem.Text = "In";
             // 
             // DocumentToolStripMenuItem
@@ -497,14 +490,14 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // Test1ToolStripMenuItem
             // 
             this.Test1ToolStripMenuItem.Name = "Test1ToolStripMenuItem";
-            this.Test1ToolStripMenuItem.Size = new System.Drawing.Size(118, 45);
+            this.Test1ToolStripMenuItem.Size = new System.Drawing.Size(118, 48);
             this.Test1ToolStripMenuItem.Text = "Test 1";
             this.Test1ToolStripMenuItem.Click += new System.EventHandler(this.Test1ToolStripMenuItem_Click);
             // 
             // Test2ToolStripMenuItem
             // 
             this.Test2ToolStripMenuItem.Name = "Test2ToolStripMenuItem";
-            this.Test2ToolStripMenuItem.Size = new System.Drawing.Size(118, 45);
+            this.Test2ToolStripMenuItem.Size = new System.Drawing.Size(118, 48);
             this.Test2ToolStripMenuItem.Text = "Test 2";
             this.Test2ToolStripMenuItem.Click += new System.EventHandler(this.Test2ToolStripMenuItem_Click);
             // 
@@ -519,6 +512,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main_Interface_Form";
             this.Text = "SOSC";
+            this.Resize += new System.EventHandler(this.Main_Interface_Form_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -560,10 +554,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.ToolStripMenuItem InsertSteelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditSteelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SyntheticToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ByBatchingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ByNameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ByDiameterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ByCustomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OptimizeCuttingStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PrintToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DocumentToolStripMenuItem;
@@ -585,6 +575,8 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalWeigh;
+        private System.Windows.Forms.ToolStripMenuItem InsertUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InsertDownToolStripMenuItem;
     }
 }
 

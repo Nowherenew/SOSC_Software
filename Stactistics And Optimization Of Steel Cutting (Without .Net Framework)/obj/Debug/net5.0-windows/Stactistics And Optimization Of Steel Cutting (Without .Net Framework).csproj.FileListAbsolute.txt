@@ -25,3 +25,4 @@ B:\Software Data\VisualStudio\SOSC_Software\Stactistics And Optimization Of Stee
 B:\Software Data\VisualStudio\SOSC_Software\Stactistics And Optimization Of Steel Cutting (Without .Net Framework)\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 B:\Software Data\VisualStudio\SOSC_Software\Stactistics And Optimization Of Steel Cutting (Without .Net Framework)\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 B:\Software Data\VisualStudio\SOSC_Software\Stactistics And Optimization Of Steel Cutting (Without .Net Framework)\obj\Debug\net5.0-windows\Stactistics And Optimization Of Steel Cutting (Without .Net Framework).csproj.CopyComplete
+B:\Software Data\VisualStudio\SOSC_Software\Stactistics And Optimization Of Steel Cutting (Without .Net Framework)\obj\Debug\net5.0-windows\Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_.Statistical_From.resources

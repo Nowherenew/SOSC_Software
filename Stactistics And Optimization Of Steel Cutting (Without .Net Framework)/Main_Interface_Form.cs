@@ -13,15 +13,18 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 {
     public partial class Main_Interface_Form : Form
     {
-        string connectionString = "Data Source=DESKTOP-4P0S6LP;Initial Catalog=SOSC_Database;Integrated Security=True";
+        int h;
         public static class Globals
         {
             public static int IDForAll;
+            public static string connectionString = "Data Source=DESKTOP-4P0S6LP;Initial Catalog=SOSC_Database;Integrated Security=True";
         }
         public Main_Interface_Form()
         {
             InitializeComponent();
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+
+            h= MainDataGridView.HorizontalScrollingOffset;
+            using (SqlConnection sqlConnection = new SqlConnection(Globals.connectionString))
             {
                 sqlConnection.Open();
                 using(SqlCommand sqlCommand=new SqlCommand("",sqlConnection))
@@ -48,20 +51,18 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 }
                 sqlConnection.Close();
             }
-            TestLabel.Text = "" + Globals.IDForAll;
         }
         private void SteelEdition_click(object sender, EventArgs e)
         {
+            int SelectedID = MainDataGridView.CurrentCell.RowIndex;
             string SteelEditionTag = (string)(sender as ToolStripItem).Tag;
-            if (SteelEditionTag == "1")
+            using (Steel_Edition_Form steel_Edition_Form = new Steel_Edition_Form(int.Parse(SteelEditionTag), SelectedID))
             {
-                using (Steel_Edition_Form steel_Edition_Form = new Steel_Edition_Form())
-                {
-                    steel_Edition_Form.ShowDialog();
-                }
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
+                steel_Edition_Form.ShowDialog();
             }
+            Main_DataGridViewUpdate();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         private void Test1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,7 +73,13 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 
         private void Test2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            Main_DataGridViewUpdate();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void Main_DataGridViewUpdate()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(Globals.connectionString))
             {
                 using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Statictiscal_Table ORDER BY ID", sqlConnection))
                 {
@@ -82,6 +89,76 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                         MainDataGridView.DataSource = dt;
                     }
                 }
+            }
+            using (SqlConnection sqlConnection = new SqlConnection(Globals.connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("", sqlConnection))
+                {
+                    sqlCommand.CommandText = "SELECT COUNT(*) FROM Statictiscal_Table;";
+                    sqlCommand.CommandType = CommandType.Text;
+                    int RowCount = (int)sqlCommand.ExecuteScalar();
+                    if (RowCount != 0)
+                    {
+                        sqlCommand.CommandText = "SELECT DISTINCT ID FROM Statictiscal_Table WHERE ID=(SELECT max(id) FROM Statictiscal_Table);";
+                        using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                        {
+
+                            while (sqlDataReader.Read())
+                            {
+                                Globals.IDForAll = int.Parse(sqlDataReader["ID"].ToString());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Globals.IDForAll = 1;
+                    }
+                }
+                sqlConnection.Close();
+            }
+            MainDataGridView.HorizontalScrollingOffset = h;
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+
+        private void MainDataGridView_Scroll(object sender, ScrollEventArgs e)
+        {
+            h = MainDataGridView.HorizontalScrollingOffset;
+            TestLabel.Text = "" + h;
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+
+        private void SyntheticToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(Statistical_From statistical_From=new Statistical_From())
+            {
+                statistical_From.ShowDialog();
+            }
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+
+        private void Main_Interface_Form_Resize(object sender, EventArgs e)
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+
+        private void EditToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            if(MainDataGridView.Rows.Count==0)
+            {
+                EditToolStripMenuItem.DropDownItems[1].Enabled = false;
+                EditToolStripMenuItem.DropDownItems[2].Enabled = false;
+                EditToolStripMenuItem.DropDownItems[3].Enabled = false;
+            }
+            else
+            {
+                EditToolStripMenuItem.DropDownItems[1].Enabled = true;
+                EditToolStripMenuItem.DropDownItems[2].Enabled = true;
+                EditToolStripMenuItem.DropDownItems[3].Enabled = true;
             }
         }
     }

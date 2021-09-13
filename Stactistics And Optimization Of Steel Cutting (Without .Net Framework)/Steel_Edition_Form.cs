@@ -18,24 +18,66 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         List<TextBox> LengthTextBoxes;
         double BarLength = 0;
         byte[] ImageBytes;
-        string connectionString = "Data Source=DESKTOP-4P0S6LP;Initial Catalog=SOSC_Database;Integrated Security=True";
-        public Steel_Edition_Form()
+        int MODE;
+        int ROW;
+        int id;
+        public Steel_Edition_Form(int Mode, int RowIndex)
         {
             InitializeComponent();
             LengthTextBoxes = new List<TextBox> {Length1TextBox, Length2TextBox, Length3TextBox, Length4TextBox, Length5TextBox, Length6TextBox, Length7TextBox };
+            MODE = Mode;
+            ROW = RowIndex;
+
+            id = ROW;
+            if (MODE==4)
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(Main_Interface_Form.Globals.connectionString))
+                {
+                    sqlConnection.Open();
+                    ROW++;
+                    using (SqlCommand sqlCommand = new SqlCommand("", sqlConnection))
+                    {
+                        sqlCommand.CommandText = "SELECT Batching, ComponentName, ComponentSign, SteelSign, ShapeTag, Diameter, NumberOfComponent, BarPerComponent,Curling45, Curling90, Curling135 FROM Statictiscal_Table WHERE ID=" + ROW;
+                        using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                        {
+                            while (sqlDataReader.Read())
+                            {
+                                BatchingTextBox.Text = sqlDataReader["Batching"].ToString();
+                                ComponentNameTextBox.Text = sqlDataReader["ComponentName"].ToString();
+                                ComponentSignTextBox.Text = sqlDataReader["ComponentSign"].ToString();
+                                SteelSignTextBox.Text = sqlDataReader["SteelSign"].ToString();
+                                ShapePictureBox.Tag = sqlDataReader["ShapeTag"].ToString().Trim();
+                                DiameterComboBox.Text = sqlDataReader["Diameter"].ToString();
+                                NumberOfComponentTextBox.Text = sqlDataReader["NumberOfComponent"].ToString();
+                                BarPerComponentTextBox.Text = sqlDataReader["BarPerComponent"].ToString();
+                                Curling45TextBox.Text = sqlDataReader["Curling45"].ToString();
+                                Curling90TextBox.Text = sqlDataReader["Curling90"].ToString();
+                                Curling135TextBox.Text = sqlDataReader["Curling135"].ToString();
+                            }
+                        }
+                    }
+                    sqlConnection.Close();
+                }
+                PictureShow((string)ShapePictureBox.Tag);
+            }
         }
         private void PictureBox_Click(object sender, EventArgs e)
         {
             string PictureBoxTag = (string)(sender as PictureBox).Tag;
             ShapePictureBox.Tag = PictureBoxTag;
-            int PointX = 0, PointY = 0;
+            PictureShow(PictureBoxTag);
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void PictureShow(string PictureBoxTag)
+        {
             for (int i = 0; i < LengthTextBoxes.Count; i++)
             {
                 LengthTextBoxes[i].Tag = "";
                 LengthTextBoxes[i].Text = "";
                 LengthTextBoxes[i].Visible = false;
             }
-            string PicturePath = "B:/Software Data/VisualStudio/SOSC_Software/Stactistics And Optimization Of Steel Cutting (Without .Net Framework)/Resources/" + ShapePictureBox.Tag + "_NCM.jpg";
+            string PicturePath = "B:/Software Data/VisualStudio/SOSC_Software/Stactistics And Optimization Of Steel Cutting (Without .Net Framework)/Resources/" + PictureBoxTag + "_NCM.jpg";
             if (ShapePictureBox.BackgroundImage != null)
             {
                 ShapePictureBox.BackgroundImage.Dispose();
@@ -45,6 +87,8 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             {
                 ShapePictureBox.BackgroundImage = Image.FromFile(PicturePath);
             }
+
+            int PointX = 0, PointY = 0;
             if (PictureBoxTag == "1")
             {
                 //ShapePictureBox.BackgroundImage = Properties.Resources._1_NCM;
@@ -53,7 +97,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
                 LengthTextBoxes[0].Tag = "lx1";
                 LengthTextBoxes[0].Visible = true;
-                TestLabel.Text = "" + LengthTextBoxes[0].Location;
             }
             else if (PictureBoxTag == "2")
             {
@@ -456,7 +499,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 LengthTextBoxes[0].Location = new Point(PointX, PointY);
                 LengthTextBoxes[0].Tag = "lx1";
                 LengthTextBoxes[0].Visible = true;
-                PointX = ShapePictureBox.Location.X + ( 340);
+                PointX = ShapePictureBox.Location.X + (340);
                 PointY = ShapePictureBox.Location.Y + 243;
                 LengthTextBoxes[1].Location = new Point(PointX, PointY);
                 LengthTextBoxes[1].Tag = "lny1";
@@ -515,8 +558,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                 LengthTextBoxes[3].Tag = "ly2";
                 LengthTextBoxes[3].Visible = true;
             }
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
         }
         private void InputNumber_Only(object sender, KeyPressEventArgs e)
         {
@@ -770,8 +811,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
                         {
                             DrawedImage.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                             ImageBytes = memoryStream.ToArray();
-
-                            TestLabel.Text = "OK " + ImageBytes.Length;
                         }
                     }
                 }
@@ -847,7 +886,18 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             }    
             else
             {
-                SQLNew();
+                if (MODE == 1)
+                {
+                    SQLNew();
+                }
+                else if(MODE==2||MODE==3)
+                {
+                    SQLInsert();
+                }
+                else if(MODE==4)
+                {
+                    SQLEdit();
+                }
             }
             GC.Collect();
             GC.WaitForPendingFinalizers();
@@ -855,7 +905,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private void SQLNew()
         {
             InsertTextPictureBox();
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            using (SqlConnection sqlConnection = new SqlConnection(Main_Interface_Form.Globals.connectionString))
             {
                 sqlConnection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand("", sqlConnection))
@@ -902,16 +952,121 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         }
         private void SQLInsert()
         {
+            InsertTextPictureBox();
+            using (SqlConnection sqlConnection = new SqlConnection(Main_Interface_Form.Globals.connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("", sqlConnection))
+                {
+                    string Condition = "";
+                    if (MODE == 2)
+                    {
+                        Condition = ">=" + ROW;
+                        id = ROW;
+                        ROW++;
+                    }
+                    else if (MODE == 3)
+                    {
+                        ROW++;
+                        Condition = ">" + ROW;
+                        id=ROW+1;
+                    }
+                    sqlCommand.CommandText = "UPDATE Statictiscal_Table SET ID = ID + 1 WHERE ID " + Condition;
+                    sqlCommand.ExecuteNonQuery();
 
+
+                    int TotalBar = int.Parse(NumberOfComponentTextBox.Text) * int.Parse(BarPerComponentTextBox.Text);
+                    double Diameter = double.Parse(DiameterComboBox.Text) / 1000;
+                    double TotalLength = (BarLength * TotalBar) / 1000;
+                    double TotalWeigh = 7850 * TotalLength * Math.PI * Diameter * Diameter;
+                    TotalWeigh = TotalWeigh / 4;
+                    sqlCommand.CommandText = "INSERT INTO Statictiscal_Table (ID, Batching, ComponentName, ComponentSign, SteelSign, Shape, Diameter, NumberOfComponent, BarPerComponent, TotalBar, LengthPerBar, TotalLength, TotalWeigh, Curling45, Curling90, Curling135, ShapeTag)" +
+                                                                    "VALUES (@iD,@batching,@componentName,@componentSign,@steelSign,@shape,@diameter,@numberOfComponent,@barPerComponent,@totalBar,@lengthPerBar,@totalLength,@totalWeigh,@curling45,@curling90,@curling135,@shapeTag);";
+                    sqlCommand.Parameters.AddWithValue("@iD", id);
+                    sqlCommand.Parameters.AddWithValue("@batching", BatchingTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@componentName", ComponentNameTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@componentSign", ComponentSignTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@steelSign", SteelSignTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@shape", ImageBytes);
+                    sqlCommand.Parameters.AddWithValue("@diameter", DiameterComboBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@numberOfComponent", NumberOfComponentTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@barPerComponent", BarPerComponentTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@totalBar", TotalBar);
+                    sqlCommand.Parameters.AddWithValue("@lengthPerBar", BarLength);
+                    sqlCommand.Parameters.AddWithValue("@totalLength", TotalLength);
+                    sqlCommand.Parameters.AddWithValue("@totalWeigh", TotalWeigh);
+                    sqlCommand.Parameters.AddWithValue("@curling45", Curling45TextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@curling90", Curling90TextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@curling135", Curling135TextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@shapeTag", (string)ShapePictureBox.Tag);
+                    sqlCommand.CommandType = CommandType.Text;
+                    int SQLExecuteNonQuertyDone = sqlCommand.ExecuteNonQuery();
+                    if (SQLExecuteNonQuertyDone == 0)
+                    {
+                        MessageBox.Show("Lỗi khi lưu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã lưu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                sqlConnection.Close();
+            }
         }
         private void SQLEdit()
         {
+            InsertTextPictureBox();
+            using (SqlConnection sqlConnection = new SqlConnection(Main_Interface_Form.Globals.connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("", sqlConnection))
+                {
 
+                    int TotalBar = int.Parse(NumberOfComponentTextBox.Text) * int.Parse(BarPerComponentTextBox.Text);
+                    double Diameter = double.Parse(DiameterComboBox.Text) / 1000;
+                    double TotalLength = (BarLength * TotalBar) / 1000;
+                    double TotalWeigh = 7850 * TotalLength * Math.PI * Diameter * Diameter;
+                    TotalWeigh = TotalWeigh / 4;
+                    sqlCommand.CommandText = "UPDATE Statictiscal_Table SET Batching=@batching, ComponentName=@componentName, ComponentSign=@componentSign, SteelSign=@steelSign, Shape=@shape, Diameter=@diameter, NumberOfComponent=@numberOfComponent, BarPerComponent=@barPerComponent, TotalBar=@totalBar, LengthPerBar=@lengthPerBar, TotalLength=@totalLength, TotalWeigh=@totalWeigh, Curling45=@curling45, Curling90=@curling90, Curling135=@curling135, ShapeTag=@shapeTag WHERE ID=@id";
+                    sqlCommand.Parameters.AddWithValue("@batching", BatchingTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@componentName", ComponentNameTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@componentSign", ComponentSignTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@steelSign", SteelSignTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@shape", ImageBytes);
+                    sqlCommand.Parameters.AddWithValue("@diameter", DiameterComboBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@numberOfComponent", NumberOfComponentTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@barPerComponent", BarPerComponentTextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@totalBar", TotalBar);
+                    sqlCommand.Parameters.AddWithValue("@lengthPerBar", BarLength);
+                    sqlCommand.Parameters.AddWithValue("@totalLength", TotalLength);
+                    sqlCommand.Parameters.AddWithValue("@totalWeigh", TotalWeigh);
+                    sqlCommand.Parameters.AddWithValue("@curling45", Curling45TextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@curling90", Curling90TextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@curling135", Curling135TextBox.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@shapeTag", (string)ShapePictureBox.Tag);
+                    sqlCommand.Parameters.AddWithValue("@id", ROW);
+                    sqlCommand.CommandType = CommandType.Text;
+                    int SQLExecuteNonQuertyDone = sqlCommand.ExecuteNonQuery();
+                    if (SQLExecuteNonQuertyDone == 0)
+                    {
+                        MessageBox.Show("Lỗi khi lưu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã lưu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                    }
+                }
+                sqlConnection.Close();
+            }
         }
-        public int All{ get; set; }
-
         private void Steel_Edition_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
         }
     }
 }

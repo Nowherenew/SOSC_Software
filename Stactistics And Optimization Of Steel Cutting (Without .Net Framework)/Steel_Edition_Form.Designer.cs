@@ -75,8 +75,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.pictureBox27 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.TestLabel = new System.Windows.Forms.Label();
             this.Curling135TextBox = new System.Windows.Forms.TextBox();
             this.Curling90TextBox = new System.Windows.Forms.TextBox();
             this.Curling45TextBox = new System.Windows.Forms.TextBox();
@@ -765,8 +763,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.TestLabel);
             this.panel2.Controls.Add(this.Curling135TextBox);
             this.panel2.Controls.Add(this.Curling90TextBox);
             this.panel2.Controls.Add(this.Curling45TextBox);
@@ -788,23 +784,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(571, 948);
             this.panel2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(241, 612);
-            this.textBox1.MaxLength = 5;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(93, 47);
-            this.textBox1.TabIndex = 37;
-            // 
-            // TestLabel
-            // 
-            this.TestLabel.AutoSize = true;
-            this.TestLabel.Location = new System.Drawing.Point(7, 696);
-            this.TestLabel.Name = "TestLabel";
-            this.TestLabel.Size = new System.Drawing.Size(70, 41);
-            this.TestLabel.TabIndex = 3;
-            this.TestLabel.Text = "Test";
             // 
             // Curling135TextBox
             // 
@@ -988,6 +967,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.CancelButton.TabIndex = 36;
             this.CancelButton.Text = "Hủy";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // AcceptButton
             // 
@@ -1005,7 +985,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length7TextBox.MaxLength = 5;
             this.Length7TextBox.Name = "Length7TextBox";
             this.Length7TextBox.Size = new System.Drawing.Size(93, 47);
-            this.Length7TextBox.TabIndex = 33;
+            this.Length7TextBox.TabIndex = 34;
             this.Length7TextBox.Visible = false;
             this.Length7TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
             this.Length7TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LentghTextBox_InputNumber_Only);
@@ -1027,7 +1007,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Length6TextBox.MaxLength = 5;
             this.Length6TextBox.Name = "Length6TextBox";
             this.Length6TextBox.Size = new System.Drawing.Size(93, 47);
-            this.Length6TextBox.TabIndex = 32;
+            this.Length6TextBox.TabIndex = 33;
             this.Length6TextBox.Visible = false;
             this.Length6TextBox.TextChanged += new System.EventHandler(this.LengthTextBox_Change);
             this.Length6TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LentghTextBox_InputNumber_Only);
@@ -1320,7 +1300,5 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button AcceptButton;
-        private System.Windows.Forms.Label TestLabel;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
