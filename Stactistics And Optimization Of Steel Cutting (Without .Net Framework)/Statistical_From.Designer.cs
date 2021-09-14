@@ -33,11 +33,14 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.AcceptButton = new System.Windows.Forms.Button();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.TypeCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.TabNameTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(553, 208);
+            this.CancelButton.Location = new System.Drawing.Point(566, 344);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(188, 58);
             this.CancelButton.TabIndex = 0;
@@ -47,7 +50,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // 
             // AcceptButton
             // 
-            this.AcceptButton.Location = new System.Drawing.Point(553, 338);
+            this.AcceptButton.Location = new System.Drawing.Point(893, 344);
             this.AcceptButton.Name = "AcceptButton";
             this.AcceptButton.Size = new System.Drawing.Size(188, 58);
             this.AcceptButton.TabIndex = 1;
@@ -64,7 +67,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             "Tên cấu kiện",
             "Kí hiệu cấu kiện",
             "Số hiệu thép"});
-            this.TypeComboBox.Location = new System.Drawing.Point(553, 12);
+            this.TypeComboBox.Location = new System.Drawing.Point(762, 188);
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(209, 49);
             this.TypeComboBox.TabIndex = 3;
@@ -78,11 +81,39 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.TypeCheckedListBox.Size = new System.Drawing.Size(516, 400);
             this.TypeCheckedListBox.TabIndex = 4;
             // 
+            // TabNameTextBox
+            // 
+            this.TabNameTextBox.Location = new System.Drawing.Point(762, 9);
+            this.TabNameTextBox.Name = "TabNameTextBox";
+            this.TabNameTextBox.Size = new System.Drawing.Size(209, 47);
+            this.TabNameTextBox.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(566, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 41);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Tên bảng";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(566, 191);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 41);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Phân loại";
+            // 
             // Statistical_From
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1108, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TabNameTextBox);
             this.Controls.Add(this.TypeCheckedListBox);
             this.Controls.Add(this.TypeComboBox);
             this.Controls.Add(this.AcceptButton);
@@ -90,6 +121,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Name = "Statistical_From";
             this.Text = "Statistical_From";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -99,5 +131,8 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.Button AcceptButton;
         private System.Windows.Forms.ComboBox TypeComboBox;
         private System.Windows.Forms.CheckedListBox TypeCheckedListBox;
+        private System.Windows.Forms.TextBox TabNameTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

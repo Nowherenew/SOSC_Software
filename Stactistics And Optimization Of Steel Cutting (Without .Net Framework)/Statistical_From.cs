@@ -13,6 +13,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 {
     public partial class Statistical_From : Form
     {
+        string Type = "";
         public Statistical_From()
         {
             InitializeComponent();
@@ -21,7 +22,6 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 
         private void TypeComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string Type = "";
             if (TypeComboBox.SelectedIndex==0)
             {
                 Type = "Batching";
@@ -70,20 +70,23 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
-            string TestString = "";
-            for (int i = 0; i < TypeCheckedListBox.SelectedItems.Count; i++)
+            string Condition = "";
+            int max = TypeCheckedListBox.CheckedItems.Count - 1;
+            for (int i = 0; i < TypeCheckedListBox.CheckedItems.Count; i++)
             {
                 
-                if (i==(TypeCheckedListBox.SelectedItems.Count-1))
+                if (i==max)
                 {
-                    TestString = TestString + TypeCheckedListBox.SelectedItems[i].ToString();
+                    Condition = Condition + Type + " = " + "'" + TypeCheckedListBox.CheckedItems[i].ToString() + "'";
                 }
-                else
+                else if(i!=max)
                 {
-                    TestString = TestString + TypeCheckedListBox.SelectedItems[i].ToString();
-                    TestString = TestString + " OR ";
+                    Condition = Condition + Type + " = " + "'" + TypeCheckedListBox.CheckedItems[i].ToString() + "'" + " OR ";
                 }
             }
+            Main_Interface_Form.Globals.StactisticCommand = Condition;
+            Main_Interface_Form.Globals.TabName = TabNameTextBox.Text;
+            DialogResult = DialogResult.OK;
         }
     }
 }
