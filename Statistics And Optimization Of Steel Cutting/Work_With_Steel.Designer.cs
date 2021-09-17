@@ -75,6 +75,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.TestLabel = new System.Windows.Forms.Label();
             this.Length4TextBox = new System.Windows.Forms.TextBox();
             this.Length2TextBox = new System.Windows.Forms.TextBox();
             this.Length7TextBox = new System.Windows.Forms.TextBox();
@@ -113,7 +114,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TestLabel = new System.Windows.Forms.Label();
+            this.Test2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.ConponentTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -168,7 +169,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(786, 913);
+            this.panel1.Size = new System.Drawing.Size(786, 912);
             this.panel1.TabIndex = 0;
             // 
             // ConponentTabControl
@@ -180,7 +181,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.ConponentTabControl.Location = new System.Drawing.Point(0, 0);
             this.ConponentTabControl.Name = "ConponentTabControl";
             this.ConponentTabControl.SelectedIndex = 0;
-            this.ConponentTabControl.Size = new System.Drawing.Size(786, 913);
+            this.ConponentTabControl.Size = new System.Drawing.Size(786, 912);
             this.ConponentTabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -189,7 +190,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.tabPage1.Location = new System.Drawing.Point(10, 58);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(766, 845);
+            this.tabPage1.Size = new System.Drawing.Size(766, 844);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cấu kiện cơ bản";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -204,7 +205,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.ShapeTabControl.Location = new System.Drawing.Point(3, 3);
             this.ShapeTabControl.Name = "ShapeTabControl";
             this.ShapeTabControl.SelectedIndex = 0;
-            this.ShapeTabControl.Size = new System.Drawing.Size(760, 839);
+            this.ShapeTabControl.Size = new System.Drawing.Size(760, 838);
             this.ShapeTabControl.TabIndex = 0;
             this.ShapeTabControl.SelectedIndexChanged += new System.EventHandler(this.ShapeTabControl_SelectedIndexChanged);
             // 
@@ -218,7 +219,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.tabPage3.Location = new System.Drawing.Point(10, 58);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(740, 771);
+            this.tabPage3.Size = new System.Drawing.Size(740, 770);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Sàn";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -310,7 +311,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.tabPage4.Location = new System.Drawing.Point(10, 58);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(740, 771);
+            this.tabPage4.Size = new System.Drawing.Size(740, 770);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Dầm - Móng";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -485,7 +486,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.tabPage5.Location = new System.Drawing.Point(10, 58);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(740, 771);
+            this.tabPage5.Size = new System.Drawing.Size(740, 770);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Cột";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -646,7 +647,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.tabPage6.Location = new System.Drawing.Point(10, 58);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(740, 771);
+            this.tabPage6.Size = new System.Drawing.Size(740, 770);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Cầu thang";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -803,6 +804,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.Test2);
             this.panel3.Controls.Add(this.TestLabel);
             this.panel3.Controls.Add(this.Length4TextBox);
             this.panel3.Controls.Add(this.Length2TextBox);
@@ -845,8 +847,17 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(786, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1317, 913);
+            this.panel3.Size = new System.Drawing.Size(1332, 912);
             this.panel3.TabIndex = 2;
+            // 
+            // TestLabel
+            // 
+            this.TestLabel.AutoSize = true;
+            this.TestLabel.Location = new System.Drawing.Point(19, 737);
+            this.TestLabel.Name = "TestLabel";
+            this.TestLabel.Size = new System.Drawing.Size(109, 32);
+            this.TestLabel.TabIndex = 3;
+            this.TestLabel.Text = "label18";
             // 
             // Length4TextBox
             // 
@@ -1243,20 +1254,20 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.label2.TabIndex = 0;
             this.label2.Text = "Thông tin cấu kiện";
             // 
-            // TestLabel
+            // Test2
             // 
-            this.TestLabel.AutoSize = true;
-            this.TestLabel.Location = new System.Drawing.Point(17, 786);
-            this.TestLabel.Name = "TestLabel";
-            this.TestLabel.Size = new System.Drawing.Size(109, 32);
-            this.TestLabel.TabIndex = 3;
-            this.TestLabel.Text = "label18";
+            this.Test2.AutoSize = true;
+            this.Test2.Location = new System.Drawing.Point(19, 810);
+            this.Test2.Name = "Test2";
+            this.Test2.Size = new System.Drawing.Size(109, 32);
+            this.Test2.TabIndex = 39;
+            this.Test2.Text = "label18";
             // 
             // Work_With_Steel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(2103, 913);
+            this.ClientSize = new System.Drawing.Size(2118, 912);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "Work_With_Steel";
@@ -1402,5 +1413,6 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label TestLabel;
+        private System.Windows.Forms.Label Test2;
     }
 }

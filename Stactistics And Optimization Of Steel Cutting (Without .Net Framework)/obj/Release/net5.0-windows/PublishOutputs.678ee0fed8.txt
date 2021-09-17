@@ -1,0 +1,11 @@
+B:\Software Data\Publish App\Stactistics And Optimization Of Steel Cutting (Without .Net Framework).exe
+B:\Software Data\Publish App\Stactistics And Optimization Of Steel Cutting (Without .Net Framework).dll
+B:\Software Data\Publish App\Stactistics And Optimization Of Steel Cutting (Without .Net Framework).deps.json
+B:\Software Data\Publish App\Stactistics And Optimization Of Steel Cutting (Without .Net Framework).runtimeconfig.json
+B:\Software Data\Publish App\Stactistics And Optimization Of Steel Cutting (Without .Net Framework).pdb
+B:\Software Data\Publish App\System.Data.SqlClient.dll
+B:\Software Data\Publish App\runtimes\win-arm64\native\sni.dll
+B:\Software Data\Publish App\runtimes\win-x64\native\sni.dll
+B:\Software Data\Publish App\runtimes\win-x86\native\sni.dll
+B:\Software Data\Publish App\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+B:\Software Data\Publish App\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

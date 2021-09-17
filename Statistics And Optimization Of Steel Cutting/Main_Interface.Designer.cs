@@ -79,7 +79,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 59);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2448, 81);
+            this.panel1.Size = new System.Drawing.Size(2118, 81);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -99,7 +99,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 140);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2448, 1194);
+            this.panel2.Size = new System.Drawing.Size(2118, 772);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -109,7 +109,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1844, 1194);
+            this.panel3.Size = new System.Drawing.Size(1514, 772);
             this.panel3.TabIndex = 2;
             // 
             // tabControl1
@@ -120,7 +120,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1844, 1194);
+            this.tabControl1.Size = new System.Drawing.Size(1514, 772);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -130,7 +130,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1824, 1126);
+            this.tabPage1.Size = new System.Drawing.Size(1494, 704);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Bảng tổng hợp";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -144,7 +144,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 102;
             this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(1818, 1118);
+            this.dataGridView1.Size = new System.Drawing.Size(1488, 696);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel4
@@ -152,10 +152,10 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1844, 0);
+            this.panel4.Location = new System.Drawing.Point(1514, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(604, 1194);
+            this.panel4.Size = new System.Drawing.Size(604, 772);
             this.panel4.TabIndex = 3;
             // 
             // panel6
@@ -164,7 +164,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 488);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(604, 706);
+            this.panel6.Size = new System.Drawing.Size(604, 284);
             this.panel6.TabIndex = 1;
             // 
             // panel5
@@ -222,7 +222,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(16, 7, 0, 7);
-            this.menuStrip1.Size = new System.Drawing.Size(2448, 59);
+            this.menuStrip1.Size = new System.Drawing.Size(2118, 59);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -275,26 +275,26 @@
             // AddSteelToolStripMenuItem
             // 
             this.AddSteelToolStripMenuItem.Name = "AddSteelToolStripMenuItem";
-            this.AddSteelToolStripMenuItem.Size = new System.Drawing.Size(328, 54);
+            this.AddSteelToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.AddSteelToolStripMenuItem.Text = "Thêm thép";
             this.AddSteelToolStripMenuItem.Click += new System.EventHandler(this.AddSteelToolStripMenuItem_Click);
             // 
             // InsertSteelToolStripMenuItem
             // 
             this.InsertSteelToolStripMenuItem.Name = "InsertSteelToolStripMenuItem";
-            this.InsertSteelToolStripMenuItem.Size = new System.Drawing.Size(328, 54);
+            this.InsertSteelToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.InsertSteelToolStripMenuItem.Text = "Chèn thép";
             // 
             // EditSteelToolStripMenuItem1
             // 
             this.EditSteelToolStripMenuItem1.Name = "EditSteelToolStripMenuItem1";
-            this.EditSteelToolStripMenuItem1.Size = new System.Drawing.Size(328, 54);
+            this.EditSteelToolStripMenuItem1.Size = new System.Drawing.Size(448, 54);
             this.EditSteelToolStripMenuItem1.Text = "Sửa thép";
             // 
             // RemoveSteelToolStripMenuItem
             // 
             this.RemoveSteelToolStripMenuItem.Name = "RemoveSteelToolStripMenuItem";
-            this.RemoveSteelToolStripMenuItem.Size = new System.Drawing.Size(328, 54);
+            this.RemoveSteelToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.RemoveSteelToolStripMenuItem.Text = "Xóa thép";
             // 
             // SyntheticToolStripMenuItem
@@ -348,7 +348,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(2448, 1334);
+            this.ClientSize = new System.Drawing.Size(2118, 912);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);

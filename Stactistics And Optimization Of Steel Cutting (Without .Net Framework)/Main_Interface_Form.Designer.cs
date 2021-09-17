@@ -83,6 +83,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Test2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TabControlRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteTabPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExcelSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainTabControl.SuspendLayout();
@@ -567,14 +568,15 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // DocumentToolStripMenuItem
             // 
             this.DocumentToolStripMenuItem.Name = "DocumentToolStripMenuItem";
-            this.DocumentToolStripMenuItem.Size = new System.Drawing.Size(310, 54);
+            this.DocumentToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.DocumentToolStripMenuItem.Text = "Tài liệu";
             // 
             // SheetToolStripMenuItem
             // 
             this.SheetToolStripMenuItem.Name = "SheetToolStripMenuItem";
-            this.SheetToolStripMenuItem.Size = new System.Drawing.Size(310, 54);
+            this.SheetToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.SheetToolStripMenuItem.Text = "Bảng tính";
+            this.SheetToolStripMenuItem.Click += new System.EventHandler(this.SheetToolStripMenuItem_Click);
             // 
             // Test1ToolStripMenuItem
             // 
@@ -692,6 +694,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.ToolStripMenuItem DeleteSteelMToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip TabControlRightClick;
         private System.Windows.Forms.ToolStripMenuItem DeleteTabPageToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog ExcelSaveFileDialog;
     }
 }
 

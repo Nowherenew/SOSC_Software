@@ -25,9 +25,8 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
         {
             using(Work_With_Steel work_With_Steel=new Work_With_Steel())
             {
+                work_With_Steel.Size = new Size(860, 400);
                 work_With_Steel.ShowDialog();
-                work_With_Steel.Dispose();
-
             }
             GC.Collect();
             GC.WaitForPendingFinalizers();

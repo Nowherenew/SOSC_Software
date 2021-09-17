@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO;
 using Microsoft.Office.Core;
-using Excel = Microsoft.Office.Interop.Excel;
 using System.Drawing.Imaging;
 
 namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
@@ -22,7 +21,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         public static class Globals
         {
             public static int IDForAll;
-            public const string connectionString = "Data Source=DESKTOP-4P0S6LP;Initial Catalog=SOSC_Database;Integrated Security=True";
+            public const string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"B:\\Software Data\\VisualStudio\\SOSC_Software\\Stactistics And Optimization Of Steel Cutting(Without.Net Framework)\\Database1.mdf\";Integrated Security=True";
             public static string StactisticCommand = "";
             public static string TabName = "";
         }
@@ -465,45 +464,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            // creating new WorkBook within Excel application  
-            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            // creating new Excelsheet in workbook  
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            // see the excel sheet behind the program  
-            app.Visible = true;
-            // get the reference of first sheet. By default its name is Sheet1.  
-            // store its reference to worksheet  
-            worksheet = (Microsoft.Office.Interop.Excel._Worksheet)workbook.Sheets["Sheet1"];
-            worksheet = (Microsoft.Office.Interop.Excel._Worksheet)workbook.ActiveSheet;
-            // changing the name of active sheet  
-            worksheet.Name = "Exported from gridview";
-            // storing header part in Excel  
-            // storing Each row and column value to excel sheet  
-            for (int i = 0; i < MainDataGridView.Rows.Count - 1; i++)
-            {
-                for (int j = 0; j < MainDataGridView.Columns.Count; j++)
-                {
-                    if (MainDataGridView.Rows[i].Cells[j].Value.GetType() == typeof(byte[]))
-                    {
-                        Image image1 = byteArrayToImage((byte[])MainDataGridView.Rows[i].Cells[j].Value);
-                        image1.Save(@"B:\test.PNG");
-                        Microsoft.Office.Interop.Excel.Range oRange = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[i + 1, j + 1];
-                        float Left = (float)((double)oRange.Left);
-                        float Top = (float)((double)oRange.Top);
-                        worksheet.Shapes.AddPicture(@"B:\test.PNG", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, 170,95);
-                        oRange.RowHeight = 95;
-                        File.Delete(@"B:\test.PNG");
-                    }
-                    else
-                    {
-                        worksheet.Cells[i + 1, j + 1] = MainDataGridView.Rows[i].Cells[j].Value.ToString();
-                    }
-
-                }
-            }
-            workbook.SaveAs("B:\\output.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-
+            
         }
 
 
@@ -521,8 +482,91 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             Image returnImage = Image.FromStream(ms);
             return returnImage;
         }
+        private void SheetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string ExcelPath = "";
+            string ExcelFileName = "";
+            ExcelSaveFileDialog.Filter = "Excel files | *.xlsx";
+            if (ExcelSaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ExcelFileName = ExcelSaveFileDialog.FileName;
+                ExcelPath =Path.GetFullPath(ExcelSaveFileDialog.FileName);
+            }
 
+            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            excel.Visible = true;
+            worksheet = (Microsoft.Office.Interop.Excel._Worksheet)workbook.Sheets["Sheet1"];
+            worksheet = (Microsoft.Office.Interop.Excel._Worksheet)workbook.ActiveSheet;
+            worksheet.Name = MainTabControl.SelectedTab.Text;
 
+            worksheet.Cells[1, 1] = MainTabControl.SelectedTab.Text;
 
+            worksheet.Cells[2, 1] = "STT";
+            worksheet.Cells[2, 2] = "Phân đợt";
+            worksheet.Cells[2, 3] = "Tên cấu kiện";
+            worksheet.Cells[2, 4] = "Kí hiệu cấu kiện";
+            worksheet.Cells[2, 5] = "Số hiệu thép";
+            worksheet.Cells[2, 6] = "Kích thước";
+            worksheet.Cells[2, 7] = "Đường kính";
+            worksheet.Cells[2, 8] = "Số lượng cấu kiện";
+            worksheet.Cells[2, 9] = "Số thanh / Cấu kiện";
+            worksheet.Cells[2, 10] = "Tổng số thanh";
+            worksheet.Cells[2, 11] = "Chiều dài một thanh";
+            worksheet.Cells[2, 12] = "Tổng chiều dài";
+            worksheet.Cells[2, 13] = "Tổng khối lượng";
+            worksheet.Columns[1].ColumnWidth = 5;
+            worksheet.Columns[2].ColumnWidth = 10;
+            worksheet.Columns[3].ColumnWidth = 10;
+            worksheet.Columns[4].ColumnWidth = 10;
+            worksheet.Columns[5].ColumnWidth = 10;
+            worksheet.Columns[6].ColumnWidth = 35;
+            worksheet.Columns[7].ColumnWidth = 15;
+            worksheet.Columns[8].ColumnWidth = 15;
+            worksheet.Columns[9].ColumnWidth = 15;
+            worksheet.Columns[10].ColumnWidth = 15;
+            worksheet.Columns[11].ColumnWidth = 15;
+            worksheet.Columns[12].ColumnWidth = 15;
+            worksheet.Columns[13].ColumnWidth = 15;
+
+            foreach (DataGridView dataGridView in MainTabControl.SelectedTab.Controls)
+            {
+
+                for (int i = 2; i < (dataGridView.Rows.Count + 1); i++)
+                {
+                    for (int j = 0; j < dataGridView.Columns.Count; j++)
+                    {
+                        if (dataGridView.Rows[i - 2].Cells[j].Value.GetType() == typeof(byte[]))
+                        {
+                            Image image1 = byteArrayToImage((byte[])dataGridView.Rows[i - 2].Cells[j].Value);
+                            image1.Save(@"B:\test.PNG");
+                            Microsoft.Office.Interop.Excel.Range oRange = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[i + 1, j + 1];
+                            float Left = (float)((double)oRange.Left);
+                            float Top = (float)((double)oRange.Top);
+                            worksheet.Shapes.AddPicture(@"B:\test.PNG", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, 170, 95);
+                            oRange.RowHeight = 95;
+                            File.Delete(@"B:\test.PNG");
+
+                        }
+                        else
+                        {
+                            worksheet.Cells[i + 1, j + 1] = dataGridView.Rows[i - 2].Cells[j].Value.ToString();
+                        }
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+
+                    }
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                }
+            }
+
+            workbook.SaveAs(ExcelPath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
+        }
     }
 }

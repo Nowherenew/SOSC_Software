@@ -36,7 +36,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
 
         private void Work_With_Steel_SizeChanged(object sender, EventArgs e)
         {
-            TestLabel.Text = "" + this.Size;
+            Test2.Text = ""+ Screen.PrimaryScreen.Bounds;
         }
 
         private void Work_With_Steel_FormClosing(object sender, FormClosingEventArgs e)
@@ -45,7 +45,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             {
                 foreach (PictureBox pictureBox in ShapeTabControl.TabPages[i].Controls)
                 {
-                    pictureBox.Image.Dispose();
+                    //pictureBox.Image.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
                 }
