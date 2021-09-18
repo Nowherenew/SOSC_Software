@@ -7,7 +7,7 @@
     <Compile Update="Main_Interface_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Statistical_From.cs">
+    <Compile Update="Statistical_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Steel_Edition_Form.cs">

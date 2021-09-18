@@ -104,7 +104,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.DiameterComboBox = new System.Windows.Forms.ComboBox();
             this.BarPerComponentTextBox = new System.Windows.Forms.TextBox();
             this.SteelSignTextBox = new System.Windows.Forms.TextBox();
-            this.LengthTextBox = new System.Windows.Forms.Label();
+            this.BarLengthLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -947,7 +947,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel3.Controls.Add(this.DiameterComboBox);
             this.panel3.Controls.Add(this.BarPerComponentTextBox);
             this.panel3.Controls.Add(this.SteelSignTextBox);
-            this.panel3.Controls.Add(this.LengthTextBox);
+            this.panel3.Controls.Add(this.BarLengthLabel);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label8);
@@ -1097,14 +1097,14 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.SteelSignTextBox.Size = new System.Drawing.Size(160, 47);
             this.SteelSignTextBox.TabIndex = 20;
             // 
-            // LengthTextBox
+            // BarLengthLabel
             // 
-            this.LengthTextBox.AutoSize = true;
-            this.LengthTextBox.Location = new System.Drawing.Point(13, 272);
-            this.LengthTextBox.Name = "LengthTextBox";
-            this.LengthTextBox.Size = new System.Drawing.Size(236, 41);
-            this.LengthTextBox.TabIndex = 11;
-            this.LengthTextBox.Text = "Kích thước (mm)";
+            this.BarLengthLabel.AutoSize = true;
+            this.BarLengthLabel.Location = new System.Drawing.Point(13, 272);
+            this.BarLengthLabel.Name = "BarLengthLabel";
+            this.BarLengthLabel.Size = new System.Drawing.Size(236, 41);
+            this.BarLengthLabel.TabIndex = 11;
+            this.BarLengthLabel.Text = "Kích thước (mm)";
             // 
             // label9
             // 
@@ -1293,7 +1293,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.ComboBox DiameterComboBox;
         private System.Windows.Forms.TextBox BarPerComponentTextBox;
         private System.Windows.Forms.TextBox SteelSignTextBox;
-        private System.Windows.Forms.Label LengthTextBox;
+        private System.Windows.Forms.Label BarLengthLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;

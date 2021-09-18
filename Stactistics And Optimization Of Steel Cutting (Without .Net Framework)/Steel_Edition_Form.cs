@@ -775,7 +775,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             {
                 BarLength = lx1 + lx2 + ly1 + ly2 - (3 * c90);
             }
-            LengthTextBox.Text = "Kích thước (mm): " + BarLength;
+            BarLengthLabel.Text = "Kích thước (mm): " + BarLength;
         }
         private void InsertTextPictureBox()
         {

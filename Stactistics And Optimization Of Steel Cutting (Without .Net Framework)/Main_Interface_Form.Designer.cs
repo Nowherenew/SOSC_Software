@@ -1,5 +1,4 @@
-﻿
-namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
+﻿namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
 {
     partial class Main_Interface_Form
     {
@@ -48,7 +47,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalWeigh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridViewRigthClick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddSteelMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InsertSteelMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +60,9 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.TabControlRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.DeleteTabPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExcelSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,9 +82,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.SheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Test1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Test2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TabControlRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.DeleteTabPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExcelSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.MainTabControl.SuspendLayout();
@@ -94,8 +93,8 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel4.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.TabControlRightClick.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -168,7 +167,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Column10,
             this.Column11,
             this.Column12,
-            this.TotalWeigh});
+            this.Column13});
             this.MainDataGridView.ContextMenuStrip = this.DataGridViewRigthClick;
             this.MainDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainDataGridView.EnableHeadersVisualStyles = false;
@@ -307,15 +306,15 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
             // 
-            // TotalWeigh
+            // Column13
             // 
-            this.TotalWeigh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TotalWeigh.DataPropertyName = "TotalWeigh";
-            this.TotalWeigh.HeaderText = "Tổng khối lượng";
-            this.TotalWeigh.MinimumWidth = 200;
-            this.TotalWeigh.Name = "TotalWeigh";
-            this.TotalWeigh.ReadOnly = true;
-            this.TotalWeigh.Width = 268;
+            this.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column13.DataPropertyName = "TotalWeigh";
+            this.Column13.HeaderText = "Tổng khối lượng";
+            this.Column13.MinimumWidth = 200;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 268;
             // 
             // DataGridViewRigthClick
             // 
@@ -429,22 +428,20 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.label1.TabIndex = 0;
             this.label1.Text = "Bảng thông tin tổng hợp";
             // 
-            // menuStrip1
+            // TabControlRightClick
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FileToolStripMenuItem,
-            this.EditToolStripMenuItem,
-            this.SyntheticToolStripMenuItem,
-            this.OptimizeCuttingStripMenuItem,
-            this.PrintToolStripMenuItem,
-            this.Test1ToolStripMenuItem,
-            this.Test2ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2746, 52);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.TabControlRightClick.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.TabControlRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DeleteTabPageToolStripMenuItem});
+            this.TabControlRightClick.Name = "TabControlRightClick";
+            this.TabControlRightClick.Size = new System.Drawing.Size(148, 52);
+            // 
+            // DeleteTabPageToolStripMenuItem
+            // 
+            this.DeleteTabPageToolStripMenuItem.Name = "DeleteTabPageToolStripMenuItem";
+            this.DeleteTabPageToolStripMenuItem.Size = new System.Drawing.Size(147, 48);
+            this.DeleteTabPageToolStripMenuItem.Text = "Xóa";
+            this.DeleteTabPageToolStripMenuItem.Click += new System.EventHandler(this.DeleteTabPage);
             // 
             // FileToolStripMenuItem
             // 
@@ -568,13 +565,13 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             // DocumentToolStripMenuItem
             // 
             this.DocumentToolStripMenuItem.Name = "DocumentToolStripMenuItem";
-            this.DocumentToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.DocumentToolStripMenuItem.Size = new System.Drawing.Size(310, 54);
             this.DocumentToolStripMenuItem.Text = "Tài liệu";
             // 
             // SheetToolStripMenuItem
             // 
             this.SheetToolStripMenuItem.Name = "SheetToolStripMenuItem";
-            this.SheetToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.SheetToolStripMenuItem.Size = new System.Drawing.Size(310, 54);
             this.SheetToolStripMenuItem.Text = "Bảng tính";
             this.SheetToolStripMenuItem.Click += new System.EventHandler(this.SheetToolStripMenuItem_Click);
             // 
@@ -592,20 +589,22 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             this.Test2ToolStripMenuItem.Text = "Test 2";
             this.Test2ToolStripMenuItem.Click += new System.EventHandler(this.button1_Click);
             // 
-            // TabControlRightClick
+            // menuStrip1
             // 
-            this.TabControlRightClick.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.TabControlRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DeleteTabPageToolStripMenuItem});
-            this.TabControlRightClick.Name = "TabControlRightClick";
-            this.TabControlRightClick.Size = new System.Drawing.Size(148, 52);
-            // 
-            // DeleteTabPageToolStripMenuItem
-            // 
-            this.DeleteTabPageToolStripMenuItem.Name = "DeleteTabPageToolStripMenuItem";
-            this.DeleteTabPageToolStripMenuItem.Size = new System.Drawing.Size(147, 48);
-            this.DeleteTabPageToolStripMenuItem.Text = "Xóa";
-            this.DeleteTabPageToolStripMenuItem.Click += new System.EventHandler(this.DeleteTabPage);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileToolStripMenuItem,
+            this.EditToolStripMenuItem,
+            this.SyntheticToolStripMenuItem,
+            this.OptimizeCuttingStripMenuItem,
+            this.PrintToolStripMenuItem,
+            this.Test1ToolStripMenuItem,
+            this.Test2ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(2746, 52);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // Main_Interface_Form
             // 
@@ -631,9 +630,9 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.TabControlRightClick.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.TabControlRightClick.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -651,7 +650,17 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Label TestLabel;
+        private System.Windows.Forms.ContextMenuStrip DataGridViewRigthClick;
+        private System.Windows.Forms.ToolStripMenuItem AddSteelMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InsertSteelMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InsertUpSteelMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InsertDownSteelMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditSteelMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteSteelMToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip TabControlRightClick;
+        private System.Windows.Forms.ToolStripMenuItem DeleteTabPageToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog ExcelSaveFileDialog;
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CreateNewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenFileToolStripMenuItem;
@@ -660,7 +669,10 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AddSteelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem InsertSteelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InsertUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InsertDownToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditSteelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RemoveSteelToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem SyntheticToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OptimizeCuttingStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PrintToolStripMenuItem;
@@ -668,10 +680,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.ToolStripMenuItem SheetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Test1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Test2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem RemoveSteelToolStripMenuItem1;
-        private System.Windows.Forms.Label TestLabel;
-        private System.Windows.Forms.ToolStripMenuItem InsertUpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem InsertDownToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -684,17 +693,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalWeigh;
-        private System.Windows.Forms.ContextMenuStrip DataGridViewRigthClick;
-        private System.Windows.Forms.ToolStripMenuItem AddSteelMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem InsertSteelMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem InsertUpSteelMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem InsertDownSteelMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EditSteelMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DeleteSteelMToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip TabControlRightClick;
-        private System.Windows.Forms.ToolStripMenuItem DeleteTabPageToolStripMenuItem;
-        private System.Windows.Forms.SaveFileDialog ExcelSaveFileDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
     }
 }
 

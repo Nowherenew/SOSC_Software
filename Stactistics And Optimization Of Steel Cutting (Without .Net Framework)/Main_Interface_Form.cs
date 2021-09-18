@@ -156,7 +156,7 @@ namespace Stactistics_And_Optimization_Of_Steel_Cutting__Without_.Net_Framework_
         private void SyntheticToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globals.TabName = "";
-            using (Statistical_From statistical_From=new Statistical_From())
+            using (Statistical_Form statistical_From=new Statistical_Form())
             {
                 statistical_From.ShowDialog();
                 if(statistical_From.DialogResult==DialogResult.OK)
