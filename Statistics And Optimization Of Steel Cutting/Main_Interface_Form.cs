@@ -80,20 +80,6 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
-
-
-        private void Test1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-        }
-
-        private void Test2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Main_DataGridViewUpdate();
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-        }
         private void Main_DataGridViewUpdate()
         {
             using (SqlConnection sqlConnection = new SqlConnection(Properties.Resources.SQLConnectionString))
@@ -154,7 +140,6 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
-
         private void SyntheticToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globals.TabName = "";
@@ -170,13 +155,11 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
-
         private void Main_Interface_Form_Resize(object sender, EventArgs e)
         {
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
-
         private void EditToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
             if (MainDataGridView.Rows.Count == 0)
@@ -202,7 +185,6 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
-
         private void RemoveSteelToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             int RowIndex = MainDataGridView.CurrentCell.RowIndex;
@@ -224,7 +206,6 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
-
         private void MainDataGridView_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -257,18 +238,18 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column1.Name = "ID";
             column1.HeaderText = "STT";
-            column1.MinimumWidth = 100;
+            column1.MinimumWidth = 12;
             column1.ReadOnly = true;
-            column1.Width = 121;
+            column1.Width = 50;
             // 
             // Column2
             // 
             column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column2.DataPropertyName = "Batching";
             column2.HeaderText = "Phân đợt";
-            column2.MinimumWidth = 150;
+            column2.MinimumWidth = 12;
             column2.ReadOnly = true;
-            column2.Width = 178;
+            column2.Width = 74;
             // 
             // Column3
             // 
@@ -277,88 +258,88 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             column3.HeaderText = "Tên cấu kiện";
             column3.MinimumWidth = 12;
             column3.ReadOnly = true;
-            column3.Width = 216;
+            column3.Width = 89;
             // 
             // Column4
             // 
             column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column4.DataPropertyName = "ComponentSign";
             column4.HeaderText = "Kí hiệu cấu kiện";
-            column4.MinimumWidth = 150;
+            column4.MinimumWidth = 12;
             column4.ReadOnly = true;
-            column4.Width = 206;
+            column4.Width = 86;
             // 
             // Column5
             // 
             column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column5.DataPropertyName = "SteelSign";
             column5.HeaderText = "Số hiệu thép";
-            column5.MinimumWidth = 150;
+            column5.MinimumWidth = 12;
             column5.ReadOnly = true;
-            column5.Width = 221;
+            column5.Width = 90;
             // 
             // Column6
             // 
             column6.DataPropertyName = "Shape";
             column6.HeaderText = "Kích thước";
             column6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            column6.MinimumWidth = 670;
+            column6.MinimumWidth = 340;
             column6.ReadOnly = true;
             column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            column6.Width = 670;
+            column6.Width = 340;
             // 
             // Column7
             // 
             column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column7.DataPropertyName = "Diameter";
             column7.HeaderText = "Đường kính";
-            column7.MinimumWidth = 150;
+            column7.MinimumWidth = 12;
             column7.ReadOnly = true;
-            column7.Width = 210;
+            column7.Width = 87;
             // 
             // Column8
             // 
             column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column8.DataPropertyName = "NumberOfComponent";
             column8.HeaderText = "Số lượng cấu kiện";
-            column8.MinimumWidth = 200;
+            column8.MinimumWidth = 12;
             column8.ReadOnly = true;
-            column8.Width = 234;
+            column8.Width = 96;
             // 
             // Column9
             // 
             column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column9.DataPropertyName = "BarPerComponent";
             column9.HeaderText = "Số thanh / Cấu kiện";
-            column9.MinimumWidth = 200;
+            column9.MinimumWidth = 12;
             column9.ReadOnly = true;
-            column9.Width = 254;
+            column9.Width = 105;
             // 
             // Column10
             // 
             column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column10.DataPropertyName = "TotalBar";
             column10.HeaderText = "Tổng số thanh";
-            column10.MinimumWidth = 200;
+            column10.MinimumWidth = 12;
             column10.ReadOnly = true;
-            column10.Width = 243;
+            column10.Width = 99;
             // 
             // Column11
             // 
             column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column11.DataPropertyName = "LengthPerBar";
             column11.HeaderText = "Chiều dài / Thanh";
-            column11.MinimumWidth = 200;
+            column11.MinimumWidth = 12;
             column11.ReadOnly = true;
-            column11.Width = 207;
+            column11.Width = 86;
             // 
             // Column12
             // 
             column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             column12.DataPropertyName = "TotalLength";
             column12.HeaderText = "Tổng chiều dài";
-            column12.MinimumWidth = 200;
+            column12.MinimumWidth = 50;
             column12.ReadOnly = true;
             // 
             // TotalWeigh
@@ -366,16 +347,16 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             column13.DataPropertyName = "TotalWeigh";
             column13.HeaderText = "Tổng khối lượng";
-            column13.MinimumWidth = 200;
+            column13.MinimumWidth = 10;
             column13.ReadOnly = true;
-            column13.Width = 268;
+            column13.Width = 109;
 
             DataGridView dataGridView = new DataGridView();
 
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridView.ColumnHeadersHeight = 100;
+            dataGridView.ColumnHeadersHeight = 40;
             dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             column1,
@@ -393,14 +374,14 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             column13});
             dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView.EnableHeadersVisualStyles = false;
-            dataGridView.Location = new System.Drawing.Point(3, 3);
+            dataGridView.Location = new System.Drawing.Point(3, 4);
             dataGridView.ReadOnly = true;
             dataGridView.RowHeadersVisible = false;
-            dataGridView.RowHeadersWidth = 200;
+            dataGridView.RowHeadersWidth = 190;
             dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridView.RowTemplate.Height = 400;
+            dataGridView.RowTemplate.Height = 190;
             dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dataGridView.Size = new System.Drawing.Size(2220, 1152);
+            dataGridView.Size = new System.Drawing.Size(355, 248);
             dataGridView.Scroll += new System.Windows.Forms.ScrollEventHandler(AnotherScroll);
             dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(MainDataGridView_CellClick);
             dataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(DataGridViewRowPostPaintEvent);

@@ -105,7 +105,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(891, 21);
+            this.panel1.Size = new System.Drawing.Size(616, 21);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -125,7 +125,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 54);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(891, 340);
+            this.panel2.Size = new System.Drawing.Size(616, 284);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -135,7 +135,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(644, 340);
+            this.panel3.Size = new System.Drawing.Size(369, 284);
             this.panel3.TabIndex = 2;
             // 
             // MainTabControl
@@ -146,7 +146,7 @@
             this.MainTabControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(644, 340);
+            this.MainTabControl.Size = new System.Drawing.Size(369, 284);
             this.MainTabControl.TabIndex = 0;
             this.MainTabControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainTabControl_MouseDown);
             // 
@@ -157,7 +157,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(636, 312);
+            this.tabPage1.Size = new System.Drawing.Size(361, 256);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Bảng tổng hợp";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@
             this.MainDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.MainDataGridView.RowTemplate.Height = 190;
             this.MainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MainDataGridView.Size = new System.Drawing.Size(630, 304);
+            this.MainDataGridView.Size = new System.Drawing.Size(355, 248);
             this.MainDataGridView.TabIndex = 0;
             this.MainDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDataGridView_CellClick);
             this.MainDataGridView.Scroll += new System.Windows.Forms.ScrollEventHandler(this.MainDataGridView_Scroll);
@@ -317,7 +317,7 @@
             this.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column12.DataPropertyName = "TotalLength";
             this.Column12.HeaderText = "Tổng chiều dài";
-            this.Column12.MinimumWidth = 100;
+            this.Column12.MinimumWidth = 50;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
             // 
@@ -397,10 +397,10 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(644, 0);
+            this.panel4.Location = new System.Drawing.Point(369, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(247, 340);
+            this.panel4.Size = new System.Drawing.Size(247, 284);
             this.panel4.TabIndex = 3;
             // 
             // panel6
@@ -466,7 +466,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(16, 7, 0, 7);
-            this.menuStrip1.Size = new System.Drawing.Size(891, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(616, 33);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -520,7 +520,7 @@
             // AddSteelToolStripMenuItem
             // 
             this.AddSteelToolStripMenuItem.Name = "AddSteelToolStripMenuItem";
-            this.AddSteelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AddSteelToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.AddSteelToolStripMenuItem.Tag = "1";
             this.AddSteelToolStripMenuItem.Text = "Thêm thép";
             this.AddSteelToolStripMenuItem.Click += new System.EventHandler(this.SteelEdition_click);
@@ -531,7 +531,7 @@
             this.InsertUpSteelToolStripMenuItem,
             this.InsertDownSteelToolStripMenuItem});
             this.InsertSteelToolStripMenuItem.Name = "InsertSteelToolStripMenuItem";
-            this.InsertSteelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.InsertSteelToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.InsertSteelToolStripMenuItem.Tag = "2";
             this.InsertSteelToolStripMenuItem.Text = "Chèn thép";
             this.InsertSteelToolStripMenuItem.Click += new System.EventHandler(this.SteelEdition_click);
@@ -551,7 +551,7 @@
             // EditSteelToolStripMenuItem
             // 
             this.EditSteelToolStripMenuItem.Name = "EditSteelToolStripMenuItem";
-            this.EditSteelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.EditSteelToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.EditSteelToolStripMenuItem.Tag = "3";
             this.EditSteelToolStripMenuItem.Text = "Sửa thép";
             this.EditSteelToolStripMenuItem.Click += new System.EventHandler(this.SteelEdition_click);
@@ -559,7 +559,7 @@
             // DeleteSteelToolStripMenuItem
             // 
             this.DeleteSteelToolStripMenuItem.Name = "DeleteSteelToolStripMenuItem";
-            this.DeleteSteelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DeleteSteelToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.DeleteSteelToolStripMenuItem.Tag = "4";
             this.DeleteSteelToolStripMenuItem.Text = "Xóa thép";
             this.DeleteSteelToolStripMenuItem.Click += new System.EventHandler(this.SteelEdition_click);
@@ -618,7 +618,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(891, 394);
+            this.ClientSize = new System.Drawing.Size(616, 338);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -628,6 +628,7 @@
             this.Name = "Main_Interface_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main_Interface";
+            this.ResizeEnd += new System.EventHandler(this.Main_Interface_Form_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

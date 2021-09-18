@@ -41,74 +41,81 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             // TypeCheckedListBox
             // 
             this.TypeCheckedListBox.FormattingEnabled = true;
-            this.TypeCheckedListBox.Location = new System.Drawing.Point(4, 5);
-            this.TypeCheckedListBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.TypeCheckedListBox.Location = new System.Drawing.Point(11, 12);
+            this.TypeCheckedListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TypeCheckedListBox.Name = "TypeCheckedListBox";
-            this.TypeCheckedListBox.Size = new System.Drawing.Size(170, 109);
+            this.TypeCheckedListBox.Size = new System.Drawing.Size(447, 249);
             this.TypeCheckedListBox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(187, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label1.Location = new System.Drawing.Point(499, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.Size = new System.Drawing.Size(135, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên bảng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label2.Location = new System.Drawing.Point(507, 141);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.Size = new System.Drawing.Size(135, 32);
             this.label2.TabIndex = 2;
             this.label2.Text = "Phân loại";
             // 
             // TypeComboBox
             // 
             this.TypeComboBox.FormattingEnabled = true;
-            this.TypeComboBox.Location = new System.Drawing.Point(265, 57);
-            this.TypeComboBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.TypeComboBox.Items.AddRange(new object[] {
+            "Batching",
+            "Diameter",
+            "ComponentName",
+            "ComponentSign",
+            "SteelSign"});
+            this.TypeComboBox.Location = new System.Drawing.Point(707, 136);
+            this.TypeComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TypeComboBox.Name = "TypeComboBox";
-            this.TypeComboBox.Size = new System.Drawing.Size(81, 21);
+            this.TypeComboBox.Size = new System.Drawing.Size(209, 39);
             this.TypeComboBox.TabIndex = 4;
+            this.TypeComboBox.SelectionChangeCommitted += new System.EventHandler(this.TypeComboBox_SelectionChangeCommitted);
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(186, 101);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.CancelButton.Location = new System.Drawing.Point(496, 241);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(70, 24);
+            this.CancelButton.Size = new System.Drawing.Size(187, 57);
             this.CancelButton.TabIndex = 5;
             this.CancelButton.Text = "Hủy";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // AcceptButton
             // 
-            this.AcceptButton.Location = new System.Drawing.Point(276, 101);
-            this.AcceptButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.AcceptButton.Location = new System.Drawing.Point(736, 241);
+            this.AcceptButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AcceptButton.Name = "AcceptButton";
-            this.AcceptButton.Size = new System.Drawing.Size(70, 24);
+            this.AcceptButton.Size = new System.Drawing.Size(187, 57);
             this.AcceptButton.TabIndex = 6;
             this.AcceptButton.Text = "Đồng ý";
             this.AcceptButton.UseVisualStyleBackColor = true;
+            this.AcceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
             // TabNameTextBox
             // 
-            this.TabNameTextBox.Location = new System.Drawing.Point(265, 8);
-            this.TabNameTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.TabNameTextBox.Location = new System.Drawing.Point(707, 19);
+            this.TabNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabNameTextBox.Name = "TabNameTextBox";
-            this.TabNameTextBox.Size = new System.Drawing.Size(81, 20);
+            this.TabNameTextBox.Size = new System.Drawing.Size(209, 38);
             this.TabNameTextBox.TabIndex = 7;
             // 
             // Statistical_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 140);
+            this.ClientSize = new System.Drawing.Size(955, 334);
             this.Controls.Add(this.TabNameTextBox);
             this.Controls.Add(this.AcceptButton);
             this.Controls.Add(this.CancelButton);
@@ -116,7 +123,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TypeCheckedListBox);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Statistical_Form";
             this.Text = "Statistical_Form";
             this.ResumeLayout(false);
