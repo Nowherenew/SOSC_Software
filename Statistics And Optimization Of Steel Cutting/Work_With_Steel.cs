@@ -61,6 +61,11 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
                 }
                 PictureShow((string)ShapePictureBox.Tag);
             }
+            else if(MODE==2)
+            {
+                ROW++;
+            }
+            TestLabel.Text = "" + ROW +" "+ MODE;
         }
         private void PictureBox_Click_Event(object sender, EventArgs e)
         {

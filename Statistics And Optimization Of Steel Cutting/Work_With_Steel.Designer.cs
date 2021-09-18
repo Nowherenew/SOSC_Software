@@ -109,6 +109,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.TestLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.ConponentTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -878,6 +879,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.TestLabel);
             this.panel3.Controls.Add(this.Length4TextBox);
             this.panel3.Controls.Add(this.Length2TextBox);
             this.panel3.Controls.Add(this.Length7TextBox);
@@ -1341,6 +1343,15 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             this.label2.TabIndex = 0;
             this.label2.Text = "Thông tin cấu kiện";
             // 
+            // TestLabel
+            // 
+            this.TestLabel.AutoSize = true;
+            this.TestLabel.Location = new System.Drawing.Point(22, 341);
+            this.TestLabel.Name = "TestLabel";
+            this.TestLabel.Size = new System.Drawing.Size(35, 13);
+            this.TestLabel.TabIndex = 40;
+            this.TestLabel.Text = "label8";
+            // 
             // Steel_Editor_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1486,5 +1497,6 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label TestLabel;
     }
 }

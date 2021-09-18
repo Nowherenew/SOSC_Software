@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -61,7 +61,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -74,6 +76,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Icon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Icon.resx</DependentUpon>
+    </Compile>
     <Compile Include="Main_Interface_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +111,10 @@
     <Compile Include="Work_With_Steel.Designer.cs">
       <DependentUpon>Work_With_Steel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Icon.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icon.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main_Interface_Form.resx">
       <DependentUpon>Main_Interface_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +155,47 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\external-browser.png" />
+    <None Include="Resources\floppy-disk.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\increase.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\optimization.png" />
+    <None Include="Resources\pen.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\sheets.png" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\up-and-down-opposite-double-arrows-side-by-side.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\add-file.png" />
+    <None Include="Resources\aggregation.png" />
+    <None Include="Resources\decrease.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\docs.png" />
+    <None Include="Resources\document.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\down-arrow.png" />
+    <None Include="Resources\76771543_2436616653228699_2917031862050226176_n.png" />
+    <None Include="Resources\76771543_2436616653228699_2917031862050226176_n.ico" />
+    <None Include="Resources\move.png" />
+    <None Include="Resources\move %282%29.png" />
+    <None Include="Resources\move up.png" />
+    <None Include="Resources\move down.png" />
+    <Content Include="Database1.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database1_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
+    <Content Include="Database2.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database2_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Database2.mdf</DependentUpon>
+    </Content>
     <Content Include="SteelInfoDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -162,16 +214,6 @@
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
-      <Visible>False</Visible>
-      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Visual.C++.14.0.x86">
-      <Visible>False</Visible>
-      <ProductName>Visual C++ "14" Runtime Libraries %28x86%29</ProductName>
-      <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
@@ -334,6 +376,28 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="SteelInfoDatabase.mdf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="SteelInfoDatabase_log.ldf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,3 +17,4 @@ B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel
 B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\bin\Debug\Statistics And Optimization Of Steel Cutting.application
 B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics And Optimization Of Steel Cutting.exe.manifest
 B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics And Optimization Of Steel Cutting.application
+B:\Software Data\VisualStudio\SOSC_Software\Statistics And Optimization Of Steel Cutting\obj\Debug\Statistics_And_Optimization_Of_Steel_Cutting.Icon.resources

@@ -70,11 +70,55 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             {
                 SelectedID = 0;
             }
-            string SteelEditionTag = (string)(sender as ToolStripItem).Tag;
+            string SteelEditionTag = "";
+            SteelEditionTag = (string)(sender as ToolStripItem).Tag;
             using (Steel_Editor_Form Steel_Editor_Form = new Steel_Editor_Form(int.Parse(SteelEditionTag), SelectedID))
             {
                 //Steel_Editor_Form.Size = new Size(900, 408);
                 Steel_Editor_Form.ShowDialog();
+            }
+            Main_DataGridViewUpdate();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void SteelEdition_ButtonClick(object sender, EventArgs e)
+        {
+            int SelectedID;
+            if (MainDataGridView.Rows.Count > 0)
+            {
+                SelectedID = MainDataGridView.CurrentCell.RowIndex;
+            }
+            else
+            {
+                SelectedID = 0;
+            }
+            string SteelEditionTag = "";
+            SteelEditionTag = (string)(sender as Button).Tag;
+            using (Steel_Editor_Form Steel_Editor_Form = new Steel_Editor_Form(int.Parse(SteelEditionTag), SelectedID))
+            {
+                //Steel_Editor_Form.Size = new Size(900, 408);
+                Steel_Editor_Form.ShowDialog();
+            }
+            Main_DataGridViewUpdate();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void RemoveSteelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int RowIndex = MainDataGridView.CurrentCell.RowIndex;
+            RowIndex++;
+            using (SqlConnection sqlConnection = new SqlConnection(Properties.Resources.SQLConnectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("", sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = "DELETE FROM Statistical_Table WHERE ID = " + RowIndex;
+                    sqlCommand.ExecuteNonQuery();
+                    sqlCommand.CommandText = "UPDATE Statistical_Table SET ID = ID - 1 WHERE ID > " + RowIndex;
+                    sqlCommand.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
             }
             Main_DataGridViewUpdate();
             GC.Collect();
@@ -90,6 +134,25 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
                     {
                         sqlDataAdapter.Fill(dt);
                         MainDataGridView.DataSource = dt;
+                    }
+                }
+            }
+            using (SqlConnection sqlConnection = new SqlConnection(Properties.Resources.SQLConnectionString))
+            {
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Diameter, SUM (TotalLength), SUM(TotalWeigh) FROM Statistical_Table GROUP BY Diameter ORDER BY Diameter;", sqlConnection))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sqlDataAdapter.Fill(dt);
+                        InfoDataGridView.DataSource = dt;
+
+                        InfoDataGridView.Columns[0].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+                        InfoDataGridView.Columns[1].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+                        InfoDataGridView.Columns[2].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+
+                        InfoDataGridView.Columns[0].HeaderText = "Đường kính (mm)";
+                        InfoDataGridView.Columns[1].HeaderText = "Tổng chiều dài (m)";
+                        InfoDataGridView.Columns[2].HeaderText = "Tổng khối lượng (kg)";
                     }
                 }
             }
@@ -126,6 +189,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             {
                 MainDataGridView.FirstDisplayedScrollingRowIndex = h;
             }
+            CheckEnable();
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
@@ -162,49 +226,50 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
         }
         private void EditToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
+            CheckEnable();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void CheckEnable()
+        {
             if (MainDataGridView.Rows.Count == 0)
             {
                 EditToolStripMenuItem.DropDownItems[1].Enabled = false;
                 EditToolStripMenuItem.DropDownItems[2].Enabled = false;
                 EditToolStripMenuItem.DropDownItems[3].Enabled = false;
+                EditToolStripMenuItem.DropDownItems[4].Enabled = false;
 
                 DataGridViewRigthClick.Items[1].Enabled = false;
                 DataGridViewRigthClick.Items[2].Enabled = false;
                 DataGridViewRigthClick.Items[3].Enabled = false;
+                DataGridViewRigthClick.Items[4].Enabled = false;
+
+                InsertSteelUpImageButton.Enabled = false;
+                InsertSteelDownImageButton.Enabled = false;
+                EditSteelImageButton.Enabled = false;
+                MoveUpImageButton.Enabled = false;
+                MoveDownImageButton.Enabled = false;
+                DeleteSteelImageButton.Enabled = false;
             }
             else
             {
                 EditToolStripMenuItem.DropDownItems[1].Enabled = true;
                 EditToolStripMenuItem.DropDownItems[2].Enabled = true;
                 EditToolStripMenuItem.DropDownItems[3].Enabled = true;
+                EditToolStripMenuItem.DropDownItems[4].Enabled = true;
 
                 DataGridViewRigthClick.Items[1].Enabled = true;
                 DataGridViewRigthClick.Items[2].Enabled = true;
                 DataGridViewRigthClick.Items[3].Enabled = true;
+                DataGridViewRigthClick.Items[4].Enabled = true;
+
+                InsertSteelUpImageButton.Enabled = true;
+                InsertSteelDownImageButton.Enabled = true;
+                EditSteelImageButton.Enabled = true;
+                MoveUpImageButton.Enabled = true;
+                MoveDownImageButton.Enabled = true;
+                DeleteSteelImageButton.Enabled = true;
             }
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-        }
-        private void RemoveSteelToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            int RowIndex = MainDataGridView.CurrentCell.RowIndex;
-            RowIndex++;
-            using (SqlConnection sqlConnection = new SqlConnection(Properties.Resources.SQLConnectionString))
-            {
-                sqlConnection.Open();
-                using (SqlCommand sqlCommand = new SqlCommand("", sqlConnection))
-                {
-                    sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = "DELETE FROM Statistical_Table WHERE ID = " + RowIndex;
-                    sqlCommand.ExecuteNonQuery();
-                    sqlCommand.CommandText = "UPDATE Statistical_Table SET ID = ID - 1 WHERE ID > " + RowIndex;
-                    sqlCommand.ExecuteNonQuery();
-                }
-                sqlConnection.Close();
-            }
-            Main_DataGridViewUpdate();
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
         }
         private void MainDataGridView_MouseDown(object sender, MouseEventArgs e)
         {
@@ -283,11 +348,11 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             column6.DataPropertyName = "Shape";
             column6.HeaderText = "Kích thước";
             column6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            column6.MinimumWidth = 340;
+            column6.MinimumWidth = 227;
             column6.ReadOnly = true;
             column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            column6.Width = 340;
+            column6.Width = 227;
             // 
             // Column7
             // 
@@ -339,7 +404,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             column12.DataPropertyName = "TotalLength";
             column12.HeaderText = "Tổng chiều dài";
-            column12.MinimumWidth = 50;
+            column12.MinimumWidth = 70;
             column12.ReadOnly = true;
             // 
             // TotalWeigh
@@ -349,14 +414,13 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             column13.HeaderText = "Tổng khối lượng";
             column13.MinimumWidth = 10;
             column13.ReadOnly = true;
-            column13.Width = 109;
 
             DataGridView dataGridView = new DataGridView();
 
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridView.ColumnHeadersHeight = 40;
+            dataGridView.ColumnHeadersHeight = 50;
             dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             column1,
@@ -379,7 +443,7 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             dataGridView.RowHeadersVisible = false;
             dataGridView.RowHeadersWidth = 190;
             dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridView.RowTemplate.Height = 190;
+            dataGridView.RowTemplate.Height = 127;
             dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new System.Drawing.Size(355, 248);
             dataGridView.Scroll += new System.Windows.Forms.ScrollEventHandler(AnotherScroll);
@@ -412,7 +476,6 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
-
         private void MainTabControl_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -435,7 +498,6 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
-
         private void MainDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             GC.Collect();
@@ -445,7 +507,6 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
         {
             (sender as DataGridView).Rows[e.RowIndex].Cells["ID"].Value = (e.RowIndex + 1).ToString();
         }
-
         public byte[] ImageToByteArray(System.Drawing.Image imageIn)
         {
             using (var ms = new MemoryStream())
@@ -508,35 +569,37 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             worksheet.Columns[12].ColumnWidth = 15;
             worksheet.Columns[13].ColumnWidth = 15;
 
-            foreach (DataGridView dataGridView in MainTabControl.SelectedTab.Controls)
+            foreach (Control control in MainTabControl.SelectedTab.Controls)
             {
-
-                for (int i = 2; i < (dataGridView.Rows.Count + 2); i++)
+                if (control is DataGridView)
                 {
-                    for (int j = 0; j < dataGridView.Columns.Count; j++)
+                    for (int i = 2; i < ((control as DataGridView).Rows.Count + 2); i++)
                     {
-                        if (dataGridView.Rows[i - 2].Cells[j].Value.GetType() == typeof(byte[]))
+                        for (int j = 0; j < (control as DataGridView).Columns.Count; j++)
                         {
-                            Image image1 = byteArrayToImage((byte[])dataGridView.Rows[i - 2].Cells[j].Value);
-                            image1.Save(@"B:\test.PNG");
-                            Microsoft.Office.Interop.Excel.Range oRange = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[i + 1, j + 1];
-                            float Left = (float)((double)oRange.Left);
-                            float Top = (float)((double)oRange.Top);
-                            worksheet.Shapes.AddPicture(@"B:\test.PNG", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, 170, 95);
-                            oRange.RowHeight = 95;
-                            File.Delete(@"B:\test.PNG");
+                            if ((control as DataGridView).Rows[i - 2].Cells[j].Value.GetType() == typeof(byte[]))
+                            {
+                                Image image1 = byteArrayToImage((byte[])(control as DataGridView).Rows[i - 2].Cells[j].Value);
+                                image1.Save(@"B:\test.PNG");
+                                Microsoft.Office.Interop.Excel.Range oRange = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[i + 1, j + 1];
+                                float Left = (float)((double)oRange.Left);
+                                float Top = (float)((double)oRange.Top);
+                                worksheet.Shapes.AddPicture(@"B:\test.PNG", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, 170, 95);
+                                oRange.RowHeight = 95;
+                                File.Delete(@"B:\test.PNG");
 
-                        }
-                        else
-                        {
-                            worksheet.Cells[i + 1, j + 1] = dataGridView.Rows[i - 2].Cells[j].Value.ToString();
+                            }
+                            else
+                            {
+                                worksheet.Cells[i + 1, j + 1] = (control as DataGridView).Rows[i - 2].Cells[j].Value.ToString();
+                            }
+                            GC.Collect();
+                            GC.WaitForPendingFinalizers();
+
                         }
                         GC.Collect();
                         GC.WaitForPendingFinalizers();
-
                     }
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
                 }
             }
 
@@ -545,6 +608,51 @@ namespace Statistics_And_Optimization_Of_Steel_Cutting
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
+        }
+        private void CreateNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(Properties.Resources.SQLConnectionString))
+            {
+                sqlConnection.Open();
+                using(SqlCommand sqlCommand=new SqlCommand("DELETE FROM Statistical_Table;",sqlConnection))
+                {
+                    sqlCommand.ExecuteNonQuery();
+                }
+                sqlConnection.Close();
+            }
+            Globals.IDForAll = 1;
+            Main_DataGridViewUpdate();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void OptimizeCuttingToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
+
+            using (SqlConnection sqlConnection = new SqlConnection(Properties.Resources.SQLConnectionString))
+            {
+                sqlConnection.Open();
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Batching,ComponentName,ComponentSign,SteelSign,Shape,Diameter,NumberOfComponent,BarPerComponent,TotalBar,LengthPerBar,TotalLength,TotalWeigh FROM Statistical_Table WHERE " + Globals.StactisticCommand + " ORDER BY ID;", sqlConnection))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sqlDataAdapter.Fill(dt);
+                        dataGridView.DataSource = dt;
+                    }
+                }
+                sqlConnection.Close();
+            }
+
+            if (Globals.TabName == "")
+            {
+                Globals.TabName = "Bảng";
+            }
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
     }
 }
